@@ -2,7 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	controllerName="controller.app"
 	xmlns="sap.m">
-	<SplitApp id="SplitAppDemo" initialDetail="detail" initialMaster="master" orientationChange="onOrientationChange">
+	<SplitApp id="appID" initialDetail="detail" initialMaster="master" orientationChange="onOrientationChange">
 		<detailPages>
 			<Page id="detail" title="Detail 1" class="sapUiStdPage">
 				<content>
