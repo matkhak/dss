@@ -1,0 +1,82 @@
+.borderLightBlue {
+    border-color: black
+}
+
+.spaceLongLabel {
+    white-space: normal
+}
+
+.myGenericTile {
+    border: 1px solid #666666;
+    box-shadow: 5px 5px 7px #808888 ;
+}
+
+.sapSuiteGT {
+    border: 10px solid #dddddd;
+    border-radius: 2px;
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+.sapMInputValHelp2 {
+    position: absolute;
+    top: 1rem;
+    right: 1.7rem;
+    height: 2.375rem;
+    width: 2.375rem;
+    box-sizing: border-box
+}
+
+.sapMInputValHelp3 {
+    position: absolute;
+    top: 1rem;
+    right: 0rem;
+    height: 2.375rem;
+    width: 2.375rem;
+    box-sizing: border-box
+}
+
+#content {
+    overflow-y: hidden;
+}
+
+/* Использование: view/admittingTable, view/showAllObjects */
+.GrayColor {
+    color: #878787;
+}
+
+/* Использование: controller/card/link */
+.VisibleHidden {
+    visibility: hidden  !important;
+}
+
+.zIndex9999 {
+    z-index: 9999
+}
+
+
+/**
+ * Сделать binding для свойства class у объектов нельзя.
+ * Поэтому приходится делать некое извращение:
+ * в dom-дерево дописываем некий дополнительный признак
+ * по которому будем уже работать css-селектором
+ *
+ * http://stackoverflow.com/questions/27843505/data-binding-of-css-class-attribute-in-xml-view
+ * https://openui5.hana.ondemand.com/#docs/guide/1ef9fefa2a574735957dcf52502ab8d0.html
+ *
+ */
+span[data-mapping-upload-class="ERROR"] {
+    color: red !important;
+    /* text-decoration: line-through; */
+}
+span[data-mapping-upload-class="WARNING"] {
+    color: orange !important;
+}
+span[data-mapping-upload-class="OK"] {
+    color: black !important;
+}
+span[data-mapping-upload-class="REWRITE"] {
+    color: black !important;
+}
+.sapMPanelBG {
+    background-color: aliceblue !important;
+}

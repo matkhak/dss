@@ -1,0 +1,34 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"  >
+  <Dialog
+      title="Подтверждение выхода"
+      class="sapUiPopupWithPadding columnsDialog"
+  >
+    <content>
+      <Label
+        text="Cледующие показатели заполнены некорректно:"
+        design="Bold"
+        class="sapUiSmallMargin"/>
+      <List
+        id="invalidItemsList"
+        noDataText="Список пуст"
+        mode="None"
+        items="{invalidItemsList>/}">
+        <DisplayListItem
+          label="{invalidItemsList>label}"
+          value="{invalidItemsList>value}"/>
+      </List>
+    </content>
+
+    <beginButton>
+      <Button text="Удалить" press="handleConfirmDialogApply" />
+    </beginButton>
+    <endButton>
+      <Button text="Отмена" press="handleConfirmDialogClose" />
+    </endButton>
+
+  </Dialog>
+</core:FragmentDefinition>

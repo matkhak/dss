@@ -1,0 +1,17 @@
+@sapVizChartBackgroundColor: @sapBackgroundColor;
+
+@sapVizChartTextColor: @sapTextColor;
+
+@sapVizChartHoverShadow: #737373;
+
+@sapVizChartHoverShadowMouseDown: #f0ab00;
+
+@sapVizChartAxisColor: #000000;
+
+@sapVizChartAxisGridlineColor: #fcdab0;
+
+@sapVizChartTooltipBorderStroke: #fdc411;
+
+@sapVizChartHoverline: #000000;
+
+@sapVizChartBackgroundStroke: #fcdab0;

@@ -1,0 +1,79 @@
+<core:View
+    controllerName="tepaup.modules.main.controller.DetailPage"
+    xmlns="sap.m"
+    class="detailPageView"
+
+    xmlns:core="sap.ui.core"
+    xmlns:ui="sap.ca.ui"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:ch="sap.ca.ui.charts"
+    xmlns:l="sap.ui.layout"
+    xmlns:vc="sap.viz.ui5.controls"
+    xmlns:d="sap.viz.ui5.data"
+    xmlns:feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:c="sap.ui.commons"
+    xmlns:sc="sap.suite.ui.commons"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:unified="sap.ui.unified"
+    xmlns:custom="tepaup.controls"
+    xmlns:fb="sap.ui.comp.filterbar"
+>
+  <Page
+      class="tpDetailPage"
+      showHeader="false"
+      showFooter="true"
+  >
+    <!-- Более детальная панель графика -->
+    <content>
+      <l:HorizontalLayout
+          class="
+            tpDetailPage__horizontalLayout
+            sapUiMediumMarginBegin
+            sapUiMediumMarginEnd
+            sapUiViewDisplayBlock
+          "
+      >
+        <mvc:XMLView
+            id="detailTableView"
+            viewName="tepaup.modules.table.view.Table"
+        />
+
+        <mvc:XMLView
+            class="detailChart"
+            id="detailChartView"
+            viewName="tepaup.modules.chart.view.Chart"
+        />
+
+      </l:HorizontalLayout>
+    </content>
+
+    <footer>
+      <Bar>
+        <!-- <contentLeft>
+          <Button
+              text="Перейти к выбору показателей"
+              iconFirst="true"
+              icon="sap-icon://arrow-left"
+              press="navtoMain"
+          />
+        </contentLeft> -->
+
+        <contentMiddle>
+            <Label text="Анализ данных"/>
+        </contentMiddle>
+
+        <contentRight>
+          <Button
+              text="Выбрать показатели для сравнения или сопоставления"
+              iconFirst="true"
+              icon="sap-icon://add-activity-2"
+              press="handleShowCompareDialog"
+          />
+          <Button id="saveButton" text="Сохранить" press="onSaveConfig" visible="{gConfig>/editable}"/>
+          <Button text="Сохранить как..." press="onOpenSaveConfigAsDialog"/>
+        </contentRight>
+      </Bar>
+    </footer>
+
+  </Page>
+</core:View>

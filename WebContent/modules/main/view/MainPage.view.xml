@@ -1,0 +1,49 @@
+<core:View
+    controllerName="tepaup.modules.main.controller.MainPage"
+    xmlns="sap.m"
+    class="mainPageView"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+
+>
+  <Page
+      class="tpMainPage"
+      id="tpMainPage"
+      showHeader="false"
+      showFooter="true"
+      enableScrolling="false"
+  >
+    <content>
+      <l:HorizontalLayout
+          class="
+            tpMainPage__horizontalLayout
+            sapUiMediumMarginBegin
+            sapUiMediumMarginEnd
+            sapUiViewDisplayBlock
+          "
+      >
+        <!-- Список показателей для выбора -->
+        <core:Fragment
+            fragmentName="tepaup.modules.main.view.LeftTable"
+            type="XML"
+        />
+        <!-- Список выбранных показателей -->
+        <core:Fragment
+            fragmentName="tepaup.modules.main.view.RightTable"
+            type="XML"
+        />
+      </l:HorizontalLayout>
+    </content>
+    <footer>
+      <Bar>
+        <contentLeft>
+
+        </contentLeft>
+        <contentMiddle>
+          <Label text="Выбор показателей"/>
+        </contentMiddle>
+      </Bar>
+    </footer>
+
+  </Page>
+</core:View>

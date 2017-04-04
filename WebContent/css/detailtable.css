@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/* table */
+/*╨Ш╤В╨╛╨│╨╛╨▓╨╛╨╡ ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ */
+/* line 4, ../stylesheets/detailtable.sass */
+.totalToolbar {
+  background-color: RGB(255, 211, 8) !important;
+  border-top-color: RGB(255, 211, 8);
+  height: 3rem !important;
+  opacity: 0.8;
+  filter: alpha(Opacity=80); }
+  /* line 10, ../stylesheets/detailtable.sass */
+  .totalToolbar > label {
+    font-size: 1rem !important;
+    color: black !important; }
+
+/*╨а╨░╨╖╨╝╨╡╤А ╨╕╨║╨╛╨╜╨║╨╕ */
+/* line 15, ../stylesheets/detailtable.sass */
+.rightTableIcon {
+  margin-left: 0.5rem; }
+
+/* line 18, ../stylesheets/detailtable.sass */
+.sapSuiteUiCommonsChartContainerOverlay {
+  top: 0 !important;
+  overflow-y: auto;
+  background-color: white !important; }
+  /* line 22, ../stylesheets/detailtable.sass */
+  .sapSuiteUiCommonsChartContainerOverlay .sapMList {
+    display: inline-block;
+    width: initial !important; }
+  /* line 25, ../stylesheets/detailtable.sass */
+  .sapSuiteUiCommonsChartContainerOverlay .rightChartScrollContainer {
+    overflow: visible !important; }
+  /* line 27, ../stylesheets/detailtable.sass */
+  .sapSuiteUiCommonsChartContainerOverlay .sapSuiteUiCommonsChartContainerChartArea {
+    padding-top: 3rem; }
+  /* line 29, ../stylesheets/detailtable.sass */
+  .sapSuiteUiCommonsChartContainerOverlay .sapSuiteUiCommonsChartContainerToolBarArea {
+    position: fixed;
+    right: 1rem;
+    width: 100%;
+    background-color: white;
+    z-index: 10000; }

@@ -1,0 +1,32 @@
+/*hier filter */
+/*@todo rename width80 to hierFilterDialog */
+/*@todo remove width74 class */
+/*@todo move this block to hier control */
+/* line 5, ../stylesheets/hierfilter.sass */
+.width80 {
+  width: 80rem; }
+  /* line 7, ../stylesheets/hierfilter.sass */
+  .width80 .sapUiTableCnt {
+    margin: 1rem; }
+  /* line 9, ../stylesheets/hierfilter.sass */
+  .width80 .sapMDialogScrollCont {
+    padding: 0px; }
+  /* line 11, ../stylesheets/hierfilter.sass */
+  .width80 .sapMDialogScroll {
+    max-width: 100%; }
+  /* line 13, ../stylesheets/hierfilter.sass */
+  .width80 .sapMDialogSection {
+    overflow-x: hidden !important; }
+  /* line 15, ../stylesheets/hierfilter.sass */
+  .width80 .sapMTB > .sapMMultiInput {
+    width: 100% !important; }
+  /* line 17, ../stylesheets/hierfilter.sass */
+  .width80 .sapMTB {
+    border-bottom: none;
+    width: 80rem !important;
+    padding: 0rem 1rem; }
+
+/* line 22, ../stylesheets/hierfilter.sass */
+.commonHierTree .sapUiTableCtrl > tbody > tr > td input {
+  font-size: 1.2rem !important;
+  color: #666666 !important; }

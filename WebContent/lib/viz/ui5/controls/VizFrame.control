@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+	<name>ui5/controls/VizFrame</name>
+	<documentation>VizFrame is a viz control that manages a visualization’s initialization, layout, feeding, customization and interactions.</documentation>
+	<since>1.22.0</since>
+	<baseType>sap.viz/ui5/controls/common/BaseControl</baseType>
+	<properties>
+        <property group="Misc" name="vizType" type="sap.ui.core/string">
+            <documentation>Type for viz frame. User can pass 'chartType' or 'info/chartType'. For example both 'bar' and 'info/bar' will create a info bar chart. 
+            Supported chart type: column, bar, stacked_bar, stacked_column, line, combination, bullet, bubble, time_bubble, pie, 
+            scatter, vertical_bullet, dual_stacked_bar, 100_stacked_bar, 100_dual_stacked_bar, dual_stacked_column, 100_stacked_column, 
+            100_dual_stacked_column, stacked_combination, horizontal_stacked_combination, dual_stacked_combination, dual_horizontal_stacked_combination
+            </documentation>
+        </property>
+        <property group="Misc" name="vizProperties" type="sap.ui.core/object">
+            <documentation>Chart properties, refer to chart property doc for more details.</documentation>
+        </property>
+        <property group="Misc" name="vizScales" type="sap.ui.core/object" since="1.25">
+            <documentation>Chart scales, refer to chart property doc for more details.</documentation>
+        </property>
+        <property group="Misc" name="legendVisible" type="sap.ui.core/boolean" defaultValue="true">
+      		<documentation>Set chart's legend properties.</documentation>
+    	</property>
+    </properties>
+    <aggregations>
+        <aggregation cardinality="0..1" name="dataset" type="sap.viz/ui5/data/Dataset">
+            <documentation>Dataset for chart.</documentation>
+        </aggregation>
+        <aggregation cardinality="0..n" name="feeds" type="sap.viz/ui5/controls/common/feeds/FeedItem">
+            <documentation>All feeds for chart.</documentation>
+        </aggregation>
+    </aggregations>
+	<methods>
+        <method name="getVizUid" type="sap.ui.core/string">
+           <documentation>Uid for viz frame. It supports other controls to connect to a viz instance.</documentation>
+        </method>
+		<method name="vizUpdate" type="sap.ui.core/void">
+            <documentation>Update viz frame according to a JSON object, it can update css, properties, feeds and data model.</documentation>
+            <parameters>
+                <parameter name="oJson" type="sap.ui.core/object">
+                    <documentation>A JSON object contains combination of css, properties, feeds and data model.</documentation>
+                </parameter>
+            </parameters>
+        </method>
+        <method name="vizSelection" type="sap.ui.core/object">
+            <documentation>Selections for the chart instance of the viz frame.</documentation>
+            <parameters>
+                <parameter name="aPoints" type="sap.ui.core/object[]">
+                    <documentation>Some data points of the chart</documentation>
+                </parameter>
+                <parameter name="oAction" type="sap.ui.core/object">
+                    <documentation>A flag 'clearSelection', whether to clear previous selection, by default the selection will be incremental selection</documentation>
+                </parameter>
+            </parameters>
+        </method>
+        <method name="getResponsiveLegend" type="sap.ui.core/void">
+            <developmentState state="deprecated" since="1.28">This API has been deprecated. This interface will be removed from the SAPUI5 delivery in one of the next releases.</developmentState>
+            <documentation>Get ResponsiveLegend Control. (For fiori application set only. It has been deprecated since 1.28.)</documentation>
+        </method>
+        <method name="getLegendVisible" type="sap.ui.core/boolean" since="1.28">
+            <documentation>Return current legend group visibility.</documentation>
+        </method>
+        <method name="setLegendVisible" type="sap.ui.core/object" since="1.28">
+            <documentation>Will respect the setting for all available legends.</documentation>
+            <parameters>
+                <parameter name="legendVisible" type="sap.ui.core/boolean">
+                    <documentation>Set legend visibility.</documentation>
+	            </parameter>
+	        </parameters>
+        </method>
+        <method name="zoom" type="sap.ui.core/void" since="1.28">
+            <documentation>Will zoom in or out the chart plot area.</documentation>
+            <parameters>
+                <parameter name="config" type="sap.ui.core/object">
+                    <documentation>A configuration object, contains a "direction" attribute with value "in" or "out" indicating zoom to enlarge or shrink respectively. e.g. {direction: "in"}</documentation>
+	            </parameter>
+	        </parameters>
+        </method>
+	</methods>
+    <events>
+        <event name="renderComplete">
+              <documentation>Event fires when the rendering ends.</documentation>
+        </event>
+        <event name="selectData">
+            <documentation>Event fires when certain data point(s) is(are) selected, data context of selected item(s) would be passed in.
+            </documentation>
+        </event>
+        <event name="deselectData">
+            <documentation>Event fires when certain data point(s) is(are) deselected, data context of deselected item(s) would be passed in
+            </documentation>
+        </event>
+    </events>
+</control>

@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/*dynamic height top area */
+/* line 3, ../stylesheets/toparea.sass */
+.tpRootPage__topAreaView {
+  display: block; }
+
+/* line 6, ../stylesheets/toparea.sass */
+.tpRootPage__topAreaView .sapMPage, .tpRootPage__topAreaView section {
+  position: relative; }
+
+/* line 9, ../stylesheets/toparea.sass */
+.tpRootPage__topAreaView .sapUiCompFilterBar {
+  background-color: transparent; }
+
+/* line 12, ../stylesheets/toparea.sass */
+.sapUiHLayoutChildWrapper > .sapUiCompFilterBar {
+  background-color: inherit; }
+
+/* line 15, ../stylesheets/toparea.sass */
+.sapUiCompFilterBarPaddingTop {
+  padding-top: 0px; }
+
+/* line 18, ../stylesheets/toparea.sass */
+.topAreaShrinked {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem; }
+
+/*hide toggle filterbar button */
+/**@todo finish shrinkable filterbar */
+/* line 26, ../stylesheets/toparea.sass */
+.tpRootPage__topAreaView .sapUiCompFilterBarFloatRight .sapUiHLayout > div:last-child {
+  display: none; }
+
+/* line 29, ../stylesheets/toparea.sass */
+#__xmlview1--tpRootPage__topAreaView--mainFilters {
+  background: #fff; }
+
+/* ╤Д╨╛╨║╤Г╤Б ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П ╤Д╨╕╨╗╤М╤В╤А╨░ ╤Б╨╕╨╗╤М╨╜╨╡╨╡ ╨┐╨╛╨┤╤Б╨▓╨╡╤З╨╕╨▓╨░╤В╤М */
+/*.sapMListModeMultiSelect > *:hover, */
+/* line 34, ../stylesheets/toparea.sass */
+.sapMListModeMultiSelect > *:focus {
+  border: 2px solid #808080 !important; }
+
+/* label ╨┐╨░╨╜╨╡╨╗╨╕ ╤Д╨╕╨╗╤М╤В╤А╨╛╨▓ */
+/* line 38, ../stylesheets/toparea.sass */
+.sapUiCompFilterBar label {
+  font-size: 1.05rem; }
+
+/* Filter Layout */
+/* line 43, ../stylesheets/toparea.sass */
+.topview__FilterBar > div {
+  width: auto !important;
+  display: inline-block !important; }
+/* line 46, ../stylesheets/toparea.sass */
+.topview__FilterBar > :first-child {
+  max-width: calc(100% - 3rem) !important; }
+/* line 48, ../stylesheets/toparea.sass */
+.topview__FilterBar > :last-child {
+  float: right !important;
+  margin-top: 1.5rem !important; }
+
+/* line 52, ../stylesheets/toparea.sass */
+.sapMComboBoxBasePicker > .sapMPopoverCont {
+  width: auto !important; }

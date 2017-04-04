@@ -1,0 +1,25 @@
+/*main page lists separator */
+/* line 3, ../stylesheets/pagemain.sass */
+.tpMainPage__horizontalLayout > div:first-child {
+  border-right: 2px solid white; }
+/* line 5, ../stylesheets/pagemain.sass */
+.tpMainPage__horizontalLayout > div:last-child {
+  border-left: 2px solid white; }
+
+/*empty list item height equal to list item with data */
+/* line 9, ../stylesheets/pagemain.sass */
+.mainPageView .sapMListNoData {
+  height: 4rem; }
+
+/* separators 4 table header (excelp last 2 elements) */
+/* line 13, ../stylesheets/pagemain.sass */
+table tr.sapMListTblRow.sapMListTblHeader > th:nth-last-child(n+2):not(:nth-last-child(-n+2)) {
+  border-right: 1px solid #808080; }
+
+/* line 17, ../stylesheets/pagemain.sass */
+.mainpage__choosedindlist .sapMLabelTBHeader {
+  font-size: inherit; }
+
+/* line 23, ../stylesheets/pagemain.sass */
+.gIndsScrollContainer .sapMSLIDescription, .mainpage__choosedlist .sapMSLIDescription {
+  width: 6rem; }

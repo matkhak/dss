@@ -1,0 +1,19 @@
+@sapVizChartHoverShadow: #484848;
+
+@sapVizChartHoverShadowMouseDown: #808080;
+
+@sapVizChartAxisColor: #ffffff;
+
+@sapVizChartAxisGridlineColor: #343434;
+
+@sapVizChartTooltipBorderStroke: #ffffff;
+
+@sapVizChartHoverline: #cccccc;
+
+@sapVizChartBackgroundStroke: #343434;
+
+@sapVizChartHiddenTitleColor: #737373;
+
+.sapVizChart .v-target{
+	stroke : #ffffff;
+}

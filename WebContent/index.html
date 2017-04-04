@@ -1,27 +1,48 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 
-        <script src="https://openui5.hana.ondemand.com/1.44.9/resources/sap-ui-core.js" type="text/javascript"				
-           id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal">
-		</script>
-		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, max-age=0, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="Fri, 17 Feb 2017 00:00:00 GMT"/>
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-		<script>
-				sap.ui.localResources("dss");
-				var app = new sap.m.App({initialPage:"iddss1"});
-				var page = sap.ui.view({id:"iddss1", viewName:"dss.dss", type:sap.ui.core.mvc.ViewType.XML});
-				app.addPage(page);
-				app.placeAt("content");
-				alert("asdsa")
-		</script>
+    <script src="https://openui5.hana.ondemand.com/1.44.9/resources/sap-ui-core.js" type="text/javascript"	
+        id="sap-ui-bootstrap"
+        data-sap-ui-libs="sap.m, sap.ui.table"
+        data-sap-ui-theme="sap_bluecrystal"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-xx-bindingSyntax="complex"
+        data-sap-ui-resourceroots='{
+            "view": "./view",
+            "controller": "./controller",
+            "root": "./",
+            "model": "./model",
+            "img": "./img",
+            "control": "./control"
+        }'>
+    </script>
 
-	</head>
-	<body class="sapUiBody" role="application">
-		<div id="content"></div>
-	</body>
+    <script>
+
+    	sap.ui.localResources("img");
+
+        sap.ui.getCore().attachInit(function() {
+             new sap.ui.core.ComponentContainer({
+                 name: "root"
+             }).placeAt("content");
+        });
+
+
+    </script>
+
+</head>
+
+<body class="sapUiBody" role="application">
+    <div id="content"></div>
+</body>
+
 </html>

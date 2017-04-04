@@ -1,0 +1,26 @@
+<core:FragmentDefinition
+  xmlns:suite="sap.suite.ui.commons"
+  xmlns:core="sap.ui.core"
+  xmlns:l="sap.ui.layout"
+  xmlns:t="sap.ui.table"
+  xmlns:c="tepaup.controls"
+  xmlns="sap.m">
+  <suite:ChartContainerContent
+    icon="sap-icon://table-chart"
+    height="100%"
+    title="Таблица"  >
+    <suite:content>
+      <t:Table
+          id="rightTable"
+          selectionMode="Single"
+          visibleRowCountMode="Auto"
+          rows="{tableMasterData>/data}"
+          columns="{
+            path: 'gSettings>/table/columns',
+            factory: '.factoryCol'
+          }"
+          sort="sortDeliveryDate">
+        </t:Table>
+    </suite:content>
+  </suite:ChartContainerContent>
+</core:FragmentDefinition>

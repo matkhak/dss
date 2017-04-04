@@ -1,0 +1,734 @@
+@charset "UTF-8";
+/*hier filter */
+/*@todo rename width80 to hierFilterDialog */
+/*@todo remove width74 class */
+/*@todo move this block to hier control */
+/* line 5, ../stylesheets/hierfilter.sass */
+.width80 {
+  width: 80rem;
+}
+/* line 7, ../stylesheets/hierfilter.sass */
+.width80 .sapUiTableCnt {
+  margin: 1rem;
+}
+/* line 9, ../stylesheets/hierfilter.sass */
+.width80 .sapMDialogScrollCont {
+  padding: 0px;
+}
+/* line 11, ../stylesheets/hierfilter.sass */
+.width80 .sapMDialogScroll {
+  max-width: 100%;
+}
+/* line 13, ../stylesheets/hierfilter.sass */
+.width80 .sapMDialogSection {
+  overflow-x: hidden !important;
+}
+/* line 15, ../stylesheets/hierfilter.sass */
+.width80 .sapMTB > .sapMMultiInput {
+  width: 100% !important;
+}
+/* line 17, ../stylesheets/hierfilter.sass */
+.width80 .sapMTB {
+  border-bottom: none;
+  padding: 0 1rem;
+}
+
+/* line 22, ../stylesheets/hierfilter.sass */
+.commonHierTree .sapUiTableCtrl > tbody > tr > td input {
+  font-size: 1.2rem !important;
+  color: #666666 !important;
+}
+
+/*dynamic height top area */
+/* line 3, ../stylesheets/toparea.sass */
+.tpRootPage__topAreaView {
+  display: block;
+}
+
+/* line 6, ../stylesheets/toparea.sass */
+.tpRootPage__topAreaView .sapMPage, .tpRootPage__topAreaView section {
+  position: relative;
+}
+
+/* line 9, ../stylesheets/toparea.sass */
+.tpRootPage__topAreaView .sapUiCompFilterBar {
+  background-color: transparent;
+}
+
+/* line 12, ../stylesheets/toparea.sass */
+.sapUiHLayoutChildWrapper > .sapUiCompFilterBar {
+  background-color: inherit;
+}
+
+/* line 15, ../stylesheets/toparea.sass */
+.sapUiCompFilterBarPaddingTop {
+  padding-top: 0px;
+}
+
+/* line 18, ../stylesheets/toparea.sass */
+.topAreaShrinked {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+/*hide toggle filterbar button */
+/**@todo finish shrinkable filterbar */
+/* line 26, ../stylesheets/toparea.sass */
+.tpRootPage__topAreaView .sapUiCompFilterBarFloatRight .sapUiHLayout > div:last-child {
+  display: none;
+}
+
+/* line 29, ../stylesheets/toparea.sass */
+#__xmlview1--tpRootPage__topAreaView--mainFilters {
+  background: #fff;
+}
+
+/* фокус значения фильтра сильнее подсвечивать */
+/*.sapMListModeMultiSelect > *:hover, */
+/* line 34, ../stylesheets/toparea.sass */
+.sapMListModeMultiSelect > *:focus {
+  border: 2px solid #808080 !important;
+}
+
+/* label панели фильтров */
+/* line 38, ../stylesheets/toparea.sass */
+.sapUiCompFilterBar label {
+  font-size: 1.05rem;
+}
+
+/* .filterBar>div:last-child {
+  position: absolute;
+  margin-left: 20px !important;
+  top: 14px;
+  right: 20px;
+} */
+
+/* Filter Layout */
+/* line 43, ../stylesheets/toparea.sass */
+.topview__FilterBar > div {
+  width: auto !important;
+  display: inline-block !important;
+}
+/* line 46, ../stylesheets/toparea.sass */
+.topview__FilterBar > :first-child {
+  max-width: calc(100% - 163px) !important;
+}
+/* line 48, ../stylesheets/toparea.sass */
+.topview__FilterBar > :last-child {
+  float: right !important;
+  margin-top: 1.5rem !important;
+}
+
+/* line 52, ../stylesheets/toparea.sass */
+.sapMComboBoxBasePicker > .sapMPopoverCont {
+  width: auto !important;
+}
+
+/*main page lists separator */
+/* line 3, ../stylesheets/pagemain.sass */
+.tpMainPage__horizontalLayout > div:first-child {
+  border-right: 2px solid white;
+}
+/* line 5, ../stylesheets/pagemain.sass */
+.tpMainPage__horizontalLayout > div:last-child {
+  border-left: 2px solid white;
+}
+
+/*empty list item height equal to list item with data */
+/* line 9, ../stylesheets/pagemain.sass */
+.mainPageView .sapMListNoData {
+  height: 4rem;
+}
+
+/* separators 4 table header (excelp last 2 elements) */
+/* line 13, ../stylesheets/pagemain.sass */
+table tr.sapMListTblRow.sapMListTblHeader > th:nth-last-child(n+2):not(:nth-last-child(-n+2)) {
+  border-right: 1px solid #808080;
+}
+
+/* line 17, ../stylesheets/pagemain.sass */
+.mainpage__choosedindlist .sapMLabelTBHeader {
+  font-size: inherit;
+}
+
+.indList__toolbar{
+  padding-left: 0 !important;
+}
+
+.indList__search{
+  width: calc(100% - 300px) !important;
+}
+
+/* line 23, ../stylesheets/pagemain.sass */
+.gIndsScrollContainer .sapMSLIDescription, .mainpage__choosedlist .sapMSLIDescription {
+  width: 6rem;
+}
+
+
+#extendedCompareFilterPanel{
+  margin: 1rem 0 !important;
+}
+
+#extendedCompareFilterPanel .sapMPanelContent{
+  padding: 1rem 0 !important;
+}
+
+
+.collationMeasureResetIcon{
+  color: #E86363 !important;
+  font-size: 1.3rem !important;
+  height: 100% !important;
+  cursor: pointer;
+}
+
+.collationMeasureResetIcon:hover{
+  color: red !important;
+}
+
+.collationMeasureResetIcon:before{
+  vertical-align: -webkit-baseline-middle;
+}
+
+.sapMITBFilter .sapMITBTab,.sapMITBFilter .sapMITBText{
+  width: 200px !important;
+}
+
+.exelDialog{
+  max-width: 300px !important;
+}
+
+
+/*vizframe header */
+/* line 2, ../stylesheets/detailchart.sass */
+.sapMTB-Solid-CTX.sapMTB {
+  background: #FFFFFF;
+}
+
+/* line 5, ../stylesheets/detailchart.sass */
+
+/* line 8, ../stylesheets/detailchart.sass */
+.sapCaUiOverlay > .sapSuiteUiCommonsChartContainer > .sapSuiteUiCommonsChartContainerWrapper > .sapSuiteUiCommonsChartContainerChartArea > .sapVizFrame {
+  height: 90vh !important;
+}
+
+/*vizchart popover */
+/* line 12, ../stylesheets/detailchart.sass */
+.viz-controls-chartPopover-dimension-marker {
+  display: none;
+}
+
+/* line 15, ../stylesheets/detailchart.sass */
+.viz-controls-chartPopover-measures-list .sapMSLITitleOnly {
+  font-size: inherit;
+  color: inherit;
+  white-space: normal;
+}
+
+/* line 20, ../stylesheets/detailchart.sass */
+.viz-controls-chartPopover-measures-list .sapMLIBContent.sapMLIBContentMargin {
+  line-height: normal !important;
+}
+
+.sapSuiteUiCommonsChartContainerChartArea{
+  display: block !important;
+  height: 100% !important;
+}
+
+.sapSuiteUiCommonsChartContainerOverlay .sapSuiteUiCommonsChartContainerWrapper{
+  height: calc(100% - 50px);
+}
+
+.detailChart .sapMScrollCont,
+.detailChart .sapMScrollContScroll{
+  height: 100% !important;
+}
+.chartToolbar{
+  background: white;
+}
+
+.syncButton span{
+  color: #CECECE !important;
+  transition: background 1s ease;
+}
+
+.syncButton.active div, .syncButton.active span{
+  color: white !important;
+  background: #007CC0 !important;
+}
+
+/* line 23, ../stylesheets/detailchart.sass */
+.viz-controls-chartPopover-measures-list .viz-controls-chartPopover-measures-item {
+  height: auto !important;
+  margin-bottom: 0.5rem;
+}
+
+/*charts IE fix */
+/* line 28, ../stylesheets/detailchart.sass */
+.viz-controls-chart-layer > div > div {
+  left: 0 !important;
+  top: 0 !important;
+}
+
+/*increase vizChart popover width */
+/* line 33, ../stylesheets/detailchart.sass */
+.sapMPopover.viz-controls-chartPopover, .sapMPopover.viz-controls-chartPopover .sapMPopoverCont {
+  width: 20rem !important;
+}
+
+/* на весь экран - задний фон белый */
+/* line 37, ../stylesheets/detailchart.sass */
+.sapSuiteUiCommonsChartContainer {
+  background-color: white;
+}
+
+/*ind column width */
+/* line 41, ../stylesheets/detailchart.sass */
+.rightChartScrollContainer th:first-child, .rightChartScrollContainer th:first-child > div {
+  width: 3rem !important;
+}
+
+/* line 44, ../stylesheets/detailchart.sass */
+#__xmlview1--rightChartView--indList-listUl > li {
+  height: auto;
+}
+
+/* table */
+/*Итоговое значение */
+/* line 4, ../stylesheets/detailtable.sass */
+.totalToolbar {
+  background-color: RGB(255, 211, 8) !important;
+  border-top-color: RGB(255, 211, 8);
+  height: 3rem !important;
+  opacity: 0.8;
+  filter: alpha(Opacity=80);
+}
+/* line 10, ../stylesheets/detailtable.sass */
+.totalToolbar > label {
+  font-size: 1rem !important;
+  color: black !important;
+}
+
+/*Размер иконки */
+/* line 15, ../stylesheets/detailtable.sass */
+.rightTableIcon {
+  margin-left: 0.5rem;
+}
+
+/* line 18, ../stylesheets/detailtable.sass */
+.sapSuiteUiCommonsChartContainerOverlay {
+  top: 0 !important;
+  overflow-y: auto;
+  background-color: white !important;
+}
+/* line 22, ../stylesheets/detailtable.sass */
+.sapSuiteUiCommonsChartContainerOverlay .sapMList {
+  display: inline-block;
+  width: initial !important;
+}
+/* line 25, ../stylesheets/detailtable.sass */
+.sapSuiteUiCommonsChartContainerOverlay .rightChartScrollContainer {
+  overflow: visible !important;
+}
+/* line 27, ../stylesheets/detailtable.sass */
+.sapSuiteUiCommonsChartContainerOverlay .sapSuiteUiCommonsChartContainerChartArea {
+  padding-top: 3rem;
+}
+/* line 29, ../stylesheets/detailtable.sass */
+.sapSuiteUiCommonsChartContainerOverlay .sapSuiteUiCommonsChartContainerToolBarArea {
+  position: fixed;
+  right: 1rem;
+  width: 100%;
+  background-color: white;
+  z-index: 10000;
+}
+
+/* line 4, ../stylesheets/pagedetail.sass */
+.detailPageView {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+/* line 10, ../stylesheets/pagedetail.sass */
+.detailPageView .tpDetailPage .tpDetailPage__horizontalLayout {
+  flex-grow: 1;
+  display: flex !important;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+/* line 15, ../stylesheets/pagedetail.sass */
+.detailPageView .tpDetailPage .tpDetailPage__horizontalLayout > .sapUiHLayoutChildWrapper {
+  flex-grow: 0.5;
+  width: 50% !important;
+  display: flex;
+  overflow-x: hidden;
+}
+/* line 20, ../stylesheets/pagedetail.sass */
+.detailPageView .tpDetailPage .tpDetailPage__horizontalLayout > .sapUiHLayoutChildWrapper > .sapUiView {
+  display: flex;
+  overflow: hidden;
+}
+/* line 23, ../stylesheets/pagedetail.sass */
+.detailPageView .tpDetailPage .tpDetailPage__horizontalLayout > .sapUiHLayoutChildWrapper > .sapUiView > .sapSuiteUiCommonsChartContainer {
+  height: initial !important;
+  /* width: initial !important */
+}
+/* line 26, ../stylesheets/pagedetail.sass */
+.detailPageView .sapSuiteUiCommonsChartContainer {
+  display: flex;
+  flex-grow: 1;
+}
+/* line 29, ../stylesheets/pagedetail.sass */
+.detailPageView .sapSuiteUiCommonsChartContainer .sapSuiteUiCommonsChartContainerWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: auto;
+}
+/* line 34, ../stylesheets/pagedetail.sass */
+.detailPageView .sapSuiteUiCommonsChartContainer .sapSuiteUiCommonsChartContainerWrapper .sapSuiteUiCommonsChartContainerToolBarArea {
+  flex-shrink: 0;
+}
+/* line 36, ../stylesheets/pagedetail.sass */
+.detailPageView .sapSuiteUiCommonsChartContainer .sapSuiteUiCommonsChartContainerWrapper .sapSuiteUiCommonsChartContainerChartArea {
+  flex-grow: 1;
+  overflow: auto;
+}
+/* line 39, ../stylesheets/pagedetail.sass */
+.detailPageView .sapSuiteUiCommonsChartContainer .sapSuiteUiCommonsChartContainerWrapper .sapSuiteUiCommonsChartContainerChartArea .rightChartScrollContainer {
+  overflow: visible !important;
+  display: flex;
+}
+
+/* line 7, ../stylesheets/screen.sass */
+.sapUiUfdShellHeader .sapUiUfdShellHeadBegin {
+  max-width: inherit !important;
+}
+/* line 9, ../stylesheets/screen.sass */
+.sapUiUfdShellHeader .sapUiUfdShellHeadBegin > .sapUiUfdShellIco {
+  vertical-align: text-bottom;
+}
+/* line 11, ../stylesheets/screen.sass */
+.sapUiUfdShellHeader .sapUiUfdShellHeadCenter {
+  margin-left: 0.5rem;
+}
+/* line 13, ../stylesheets/screen.sass */
+.sapUiUfdShellHeader .sapUiUfdShellHeadCenter .zShellTitle > span {
+  font-size: 1.3rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 44px;
+  margin-top: 0%;
+  overflow: hidden;
+}
+
+/* line 21, ../stylesheets/screen.sass */
+.tpMainPage__horizontalLayout {
+  display: block !important;
+}
+/* line 23, ../stylesheets/screen.sass */
+.tpMainPage__horizontalLayout .sapMTB {
+  border-top: 3px solid white;
+}
+
+/* line 26, ../stylesheets/screen.sass */
+.tpRootPage section {
+  display: flex;
+  flex-direction: column;
+}
+/* line 31, ../stylesheets/screen.sass */
+.tpRootPage section .tpRootPage__pagesNavContainer .mainPageView .sapMPage section .tpMainPage__horizontalLayout {
+  display: flex !important;
+  overflow: hidden;
+}
+/* line 34, ../stylesheets/screen.sass */
+.tpRootPage section .tpRootPage__pagesNavContainer .mainPageView .sapMPage section .tpMainPage__horizontalLayout .sapUiHLayoutChildWrapper {
+  display: flex !important;
+  overflow: hidden;
+  flex-grow: 0.5;
+  flex-basis: 0;
+}
+/* line 39, ../stylesheets/screen.sass */
+.tpRootPage section .tpRootPage__pagesNavContainer .mainPageView .sapMPage section .tpMainPage__horizontalLayout .sapUiHLayoutChildWrapper .mainpage__indlist, .tpRootPage section .tpRootPage__pagesNavContainer .mainPageView .sapMPage section .tpMainPage__horizontalLayout .sapUiHLayoutChildWrapper .mainpage__choosedlist {
+  display: flex;
+  flex-direction: column;
+}
+/* line 42, ../stylesheets/screen.sass */
+.tpRootPage section .tpRootPage__pagesNavContainer .mainPageView .sapMPage section .tpMainPage__horizontalLayout .sapUiHLayoutChildWrapper .mainpage__indlist > :first-child, .tpRootPage section .tpRootPage__pagesNavContainer .mainPageView .sapMPage section .tpMainPage__horizontalLayout .sapUiHLayoutChildWrapper .mainpage__choosedlist > :first-child {
+  flex-shrink: 0;
+}
+/* line 44, ../stylesheets/screen.sass */
+.tpRootPage section .tpRootPage__pagesNavContainer .mainPageView .sapMPage section .tpMainPage__horizontalLayout .sapUiHLayoutChildWrapper .mainpage__indlist > :nth-child(2), .tpRootPage section .tpRootPage__pagesNavContainer .mainPageView .sapMPage section .tpMainPage__horizontalLayout .sapUiHLayoutChildWrapper .mainpage__choosedlist > :nth-child(2) {
+  overflow-y: auto;
+}
+
+/**@todo remove me */
+/* line 48, ../stylesheets/screen.sass */
+.floatRight {
+  float: right;
+}
+
+/* line 51, ../stylesheets/screen.sass */
+.sapMApp > .sapMNavItem {
+  position: static;
+}
+
+/* fonts */
+/* line 56, ../stylesheets/screen.sass */
+.fontItalic {
+  font-style: italic !important;
+}
+
+/* line 59, ../stylesheets/screen.sass */
+.fontBold {
+  font-weight: bold !important;
+  font-style: normal !important;
+}
+
+/* увеличенный шрифт */
+/* line 64, ../stylesheets/screen.sass */
+.sapMPage > footer > .sapMBarMiddle label {
+  font-size: 1.1rem !important;
+}
+
+.config{
+  padding: 7px !important;
+}
+
+.config__title{
+  color: #333 !important;
+  font-size: 20px!important;
+  margin-bottom: 5px;
+}
+
+.config__box{
+  display: block !important;
+  position: relative;
+  height: 20px !important;
+}
+
+.filterBar__searchButton {
+  margin-right: 10px !important;
+  font-weight: bold !important;
+  border-radius: 5px !important;
+}
+
+.filterBar__searchButton>div {
+  background: #005f28;
+  text-shadow: none !important;
+  border-radius: 5px !important;
+}
+
+.filterBar__searchButton:hover>div {
+  background: #38ae53 !important;
+}
+
+.filterBar__searchButton span {
+  color: white;
+}
+
+.config__favorite{
+  position: absolute;
+  top: -50px;
+  right: 40px;
+  color: rgba(233, 255, 45, 0.74) !important;
+  font-size: 22px;
+}
+
+.config__favorite:hover{
+  color: #ffa223 !important;
+}
+
+.config__delete{
+  position: absolute;
+  top: -46px;
+  right: 6px;
+  color: rgba(190, 24, 30, 0.81) !important;
+  font-size: 18px;
+}
+
+.config__delete:hover{
+  color: #ff0c20 !important;
+}
+
+/*.sapUiTableSelAll, .sapUiTableRowHdrScr {
+  display: none !important;
+}
+
+.sapUiTableColHdrScr{
+  margin-left: 0 !important;
+}
+
+.sapUiTableCtrlScr{
+  margin-left: 0 !important;
+}
+
+.sapUiTableCtrlEmpty{
+  left: 0 !important;
+}*/
+
+.topArea__selectionDialog{
+  width: 1200px;
+}
+
+.hierDialog__label{
+  margin-left: 20px !important;
+  margin-right: 10px !important;
+  line-height: 45px !important;
+}
+
+.hierDialog__date{
+  margin-right: 30px !important;
+}
+
+.hierDialog__type{
+  width: 100% !important;
+}
+
+.hierDialog__box{
+  padding: 20px 0;
+}
+
+.hierDialog__input{
+  width: 100% !important;
+}
+
+.hierDialog .inputBox .sapMFlexItem:first-child{
+    width: 100%;
+}
+
+.hierDialog .inputBox .sapMFlexItem:last-child{
+    width: 42px;
+}
+
+.hierDialog .hierDialog__box .sapMFlexItem:nth-child(4){
+  flex-grow: 1 !important;
+}
+
+/* Кастомный стиль для global busy indicator, который открывается при экспорте в excel */
+.GlobalBusyContainerStyle {
+  opacity: 1 !important;
+  background: #fff !important;
+  z-index: 9999999 !important;
+}
+.GlobalBusyIndicatorStyle {
+  z-index: 10000000 !important;
+}
+.importantHide {
+  visibility: hidden !important;
+}
+
+/*Для схематичной excel таблицы*/
+.GlobalBusyContainerStyle {
+  opacity: 1 !important;
+  background: #fff !important;
+  z-index: 9999999 !important;
+}
+.GlobalBusyIndicatorStyle {
+  z-index: 10000000 !important;
+}
+.importantHide {
+  visibility: hidden !important;
+}
+
+/*Для схематичной excel таблицы*/
+.schemaExcelTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+.schemaExcelTable tr td span {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.schemaExcelTable .mes-td {
+    width: 50px;
+    height: 250px;
+    position: relative;
+}
+.schemaExcelTable tbody .mes-td.mes-name.group-name{
+    width: 22px;
+}
+.schemaExcelTable thead .group-name{
+    height: 22px;
+    padding: 0 0;
+}
+.schemaExcelTable .mes-td.mes-name span{
+    margin: 92px 2px;
+}
+.schemaExcelTable .group-name span {
+    font-size: 12px;
+    color: #bb0000;
+}
+.schemaExcelTable .mes-td.WideCell {
+    width: 75px;
+}
+.schemaExcelTable .mes-td span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: right;
+    top: 0px;
+    position: absolute;
+    left: 0;
+    padding: 8px 1px;
+}
+.schemaExcelTable .back-dark {
+    background: #f7f7f7;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+   .schemaExcelTable .mes-td span {
+      transform: rotate(270deg);
+      top: 10px;
+      writing-mode: rl-tb !important;
+      width: 100%;
+  }
+  .schemaExcelTable .back-dark {
+    top: 2px;
+  }
+  .schemaExcelTable .back-dark {
+    background: none;
+  }
+}
+.schemaExcelTable tr td {
+    border: 1px solid #e5e5e5;
+}
+.schemaExcelTable td.dark-border-bottom{
+    border-bottom: 1px solid #808080;
+}
+.schemaExcelTable td.dark-border-right{
+    border-right: 1px solid #808080;
+}
+.schemaExcelTable td.dark-border-left{
+    border-left: 1px solid #808080;
+}
+.schemaExcelTable thead tr td{
+    padding: 8px 4px;
+}
+.schemaExcelTable .dataCell {
+    background: #F0F8FF;
+}
+
+.tableSellHidden {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  height: 100% !important;
+}
+
+.sapSuiteUiCommonsChartContainer,
+.sapSuiteUiCommonsChartContainerOverlay .sapSuiteUiCommonsChartContainer {
+  display: flex;
+  flex-direction: column; }
+
+.sapSuiteUiCommonsChartContainerWrapper,
+.sapSuiteUiCommonsChartContainerOverlay .sapSuiteUiCommonsChartContainerWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1; }
+
+.sapSuiteUiCommonsChartContainerChartArea,
+.sapVizContainer,
+.sapSuiteUiCommonsChartContainerOverlay .sapSuiteUiCommonsChartContainerChartArea,
+.sapSuiteUiCommonsChartContainerOverlay .sapVizContainer {
+  display: flex;
+  flex: 1; }

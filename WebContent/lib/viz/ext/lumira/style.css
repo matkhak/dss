@@ -1,0 +1,11 @@
+.sap_viz_ext_stackedcolumnlinechart_Y_axis > .tick > text {
+    display: none;
+}
+.sap_viz_ext_stackedcolumnlinechart_Y_axis > .tick:nth-child(9n-7) > text,
+.sap_viz_ext_stackedcolumnlinechart_Y_axis > .tick:nth-child(1) > text,
+.sap_viz_ext_stackedcolumnlinechart_Y_axis > g:last-of-type > text {
+    display: block;
+}
+.sap_viz_ext_stackedcolumnlinechart_Y_axis > .tick:nth-child(2) > text {
+    display: none;
+}

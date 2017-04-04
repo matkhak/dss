@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<core:View
+    controllerName="tepaup.modules.top.controller.TopArea"
+    xmlns="sap.m"
+    xmlns:custom="zcust.controls"
+    xmlns:modcustom="tepaup.modules.top.controls"
+
+    xmlns:c="sap.suite.ui.commons"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+  <NavContainer
+      id="filterBarNavContainer"
+      height="100%"
+      defaultTransitionName="show"
+  >
+    <pages>
+
+      <!--Expanded FilterBar-->
+      <Page
+          showHeader="false"
+          showFooter="false"
+          height="100%"
+      >
+        <modcustom:FilterBar
+            id="mainFilters"
+            class="topview__FilterBar sapUiSizeCompact"
+            width="100%"
+            reset="onResetMainFilters"
+            search="onApplyMainFilters"
+            showRestoreOnFB="true"
+            showRestoreButton="true"
+            showGoButton="true"
+            showGoOnFB="true"
+        />
+      </Page>
+
+      <!--Shrinked FilterBar-->
+      <Page
+          showHeader="false"
+          showFooter="false"
+          height="100%"
+          class="sapUiSizeCompact topAreaShrinked"
+      >
+        <l:HorizontalLayout
+            class="sapUiSmallMarginEnd"
+        >
+          <Label class="sapUiSmallMarginEnd" text="Бизнес-сфера" />
+          <Label class="sapUiSmallMarginEnd" text="Функции-задачи" />
+          <Label class="sapUiSmallMarginEnd" text="Функциональные группы" />
+          <Label class="sapUiSmallMarginEnd" text="Группы" />
+          <Label class="sapUiSmallMarginEnd" text="Инфосистема" />
+          <Label text="Функция управления" />
+        </l:HorizontalLayout>
+        <Button
+            icon="sap-icon://expand-group"
+            press="filterBarToggle"
+            class="topAreaShrinkedToggleBtn"
+        />
+      </Page>
+
+    </pages>
+  </NavContainer>
+</core:View>
