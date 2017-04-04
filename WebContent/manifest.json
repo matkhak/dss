@@ -8,8 +8,8 @@
                 "viewType": "XML",
                 "controlId": "appID",
                 "clearTarget": "true",
-                "controlAggregation": "pages",
-                 "targetControl": "navContainer"
+                "controlAggregation": "pages"
+               
             },
             "routes": [{
                 "pattern": "",
