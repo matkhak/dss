@@ -24,12 +24,12 @@
       >
         <!-- Список показателей для выбора -->
         <core:Fragment
-            fragmentName="tepaup.modules.main.view.LeftTable"
+            fragmentName="WebContent.view.LeftTable"
             type="XML"
         />
         <!-- Список выбранных показателей -->
         <core:Fragment
-            fragmentName="tepaup.modules.main.view.RightTable"
+            fragmentName="WebContent.view.RightTable"
             type="XML"
         />
       </l:HorizontalLayout>
