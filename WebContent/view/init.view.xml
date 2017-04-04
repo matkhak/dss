@@ -23,7 +23,16 @@
             sapUiViewDisplayBlock
           "
       >
-      
+        <!-- Список показателей для выбора -->
+        <core:Fragment
+            fragmentName="view.LeftTable"
+            type="XML"
+        />
+        <!-- Список выбранных показателей -->
+        <core:Fragment
+            fragmentName="view.RightTable"
+            type="XML"
+        />
       </l:HorizontalLayout>
     </content>
     <footer>
