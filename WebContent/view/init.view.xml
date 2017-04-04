@@ -25,12 +25,12 @@
       >
         <!-- Список показателей для выбора -->
         <core:Fragment
-            fragmentName="WebContent.view.LeftTable"
+            fragmentName="view.LeftTable"
             type="XML"
         />
         <!-- Список выбранных показателей -->
         <core:Fragment
-            fragmentName="WebContent.view.RightTable"
+            fragmentName="view.RightTable"
             type="XML"
         />
       </l:HorizontalLayout>
