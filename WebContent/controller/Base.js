@@ -15,12 +15,6 @@ sap.ui.define([
 ], function(Controller, JSONModel, MessageToast,MessageBox, Filter, FilterOperator) {
     "use strict";
 
-    $.ajax({
-            url: "../common_xsjs/session.xsjs",
-        })
-        .done(function(answer) {
-            sap.ui.getCore().setModel(new JSONModel(answer), "session");
-        });
 
     return Controller.extend("controller.Base", {
 
