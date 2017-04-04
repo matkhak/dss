@@ -1,6 +1,6 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+
 	controllerName="sap.m.sample.SplitApp.C"
 	xmlns="sap.m">
 	<SplitApp id="SplitAppDemo" initialDetail="detail" initialMaster="master" orientationChange="onOrientationChange">
@@ -19,10 +19,10 @@
 						<Text text="Here you could change the Split Application mode. After the mode change, resize the browser window to see the difference in the master form behaviour." />
 						<RadioButtonGroup columns="1" width="500px" class="sapUiMediumMarginBottom" select="onPressModeBtn">
 							<buttons>
-								<RadioButton id="RB1-1" text="show/hide" selected="true" custom:splitAppMode="ShowHideMode" />
-								<RadioButton id="RB1-2" text="stretch/compress" custom:splitAppMode="StretchCompressMode" />
-								<RadioButton id="RB1-3" text="hide" custom:splitAppMode="HideMode" />
-								<RadioButton id="RB1-4" text="popover" custom:splitAppMode="PopoverMode" />
+								<RadioButton id="RB1-1" text="show/hide" selected="true"  />
+								<RadioButton id="RB1-2" text="stretch/compress"  />
+								<RadioButton id="RB1-3" text="hide"  />
+								<RadioButton id="RB1-4" text="popover"  />
 							</buttons>
 						</RadioButtonGroup>
 					</VBox>
@@ -60,9 +60,9 @@
 				<content>
 					<List itemPress="onListItemPress">
 						<items>
-							<StandardListItem title="To Detail 1" type="Active" custom:to="detail"/>
-							<StandardListItem title="To Detail 2" type="Active" custom:to="detailDetail"/>
-							<StandardListItem title="To Detail 3" type="Active" custom:to="detail2"/>
+							<StandardListItem title="To Detail 1" type="Active" />
+							<StandardListItem title="To Detail 2" type="Active" />
+							<StandardListItem title="To Detail 3" type="Active" />
 						</items>
 					</List>
 				</content>
