@@ -8,7 +8,7 @@ sap.ui.define([
 	], function(jQuery, MessageToast, Fragment, Controller, Filter, JSONModel) {
 	"use strict";
 
-	var CController = Controller.extend("sap.m.sample.SplitApp.C", {
+	var CController = Controller.extend("controller.app", {
 
 		onInit: function(){
 			this.getSplitAppObj().setHomeIcon({
