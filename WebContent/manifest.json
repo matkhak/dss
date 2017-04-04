@@ -6,7 +6,6 @@
                 "routerClass": "sap.m.routing.Router",
                 "viewPath": "view",
                 "viewType": "XML",
-                "controlId": "appID",
                 "clearTarget": "true",
                 "controlAggregation": "pages"
          
