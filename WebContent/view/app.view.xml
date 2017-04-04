@@ -3,11 +3,13 @@
     controllerName="controller.App"
     displayBlock="true"
     xmlns="sap.m"
+   
     class="appView"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:custom="controls"
     xmlns:unified="sap.ui.unified"
     xmlns:core="sap.ui.core"
+    id="appID"
 >
   <custom:Shell
   icon="img/surgutneftegaz_small.png"
