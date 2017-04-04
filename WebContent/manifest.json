@@ -1,6 +1,12 @@
 {
     "sap.ui5": {
         "rootView": "view.app",
+        
+        "dependencies" : {
+				"libs" : [
+					"sap.m"
+				]
+		},
         "routing": {
             "config": {
                 "routerClass": "sap.m.routing.Router",
@@ -19,7 +25,7 @@
 
             "targets": {
                 "init": {
-                    "viewName": "view.init",
+                    "viewName": "init",
                     "viewType": "XML"
                 }
 
