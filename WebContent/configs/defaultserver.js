@@ -1,1 +1,0 @@
-tepaup.serverPrefix="/uoiot/lim_tep_aup/app/services/";

@@ -24,7 +24,6 @@ sap.ui.define([
         // когда возвращаемся на первую страницу
         onRouter: function()
         {
-            this.loadCountAdmitObjects();
         },
 
         handlePressGoRepo: function()
