@@ -1,21 +1,15 @@
 {
     "sap.ui5": {
         "rootView": "view.app",
-        
-        "dependencies" : {
-				"libs" : [
-					"sap.m"
-				]
-		},
         "routing": {
             "config": {
                 "routerClass": "sap.m.routing.Router",
                 "viewPath": "view",
                 "viewType": "XML",
+                "controlId": "appID",
                 "clearTarget": "true",
-                "controlAggregation": "pages"
-         
-               
+                "controlAggregation": "pages",
+                 "targetControl": "navContainer"
             },
             "routes": [{
                 "pattern": "",
