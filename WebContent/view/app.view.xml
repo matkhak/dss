@@ -1,6 +1,5 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
-
 	controllerName="controller.app"
 	xmlns="sap.m">
 	<SplitApp id="SplitAppDemo" initialDetail="detail" initialMaster="master" orientationChange="onOrientationChange">
