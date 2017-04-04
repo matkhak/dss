@@ -1,0 +1,10 @@
+-- Роль для запуска.
+--
+-- Включает в себя только app-роль для запуска, и ничего более.
+
+role bobj_repo.start_tiles.roles::approle_0427_start_tiles
+{
+    -- app role
+    application privilege: bobj_repo.start_tiles::Launch;
+    
+}

@@ -1,50 +1,394 @@
-<core:View
+<mvc:View
     controllerName="controller.init"
-    xmlns="sap.m"
-    class="mainPageView"
-    xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
-
->
-  <Page
-      class="tpMainPage"
-      id="tpMainPage"
-      showHeader="false"
-      showFooter="true"
-      enableScrolling="false"
-  >
-  
-    <content>
-      <l:HorizontalLayout
-          class="
-            tpMainPage__horizontalLayout
-            sapUiMediumMarginBegin
-            sapUiMediumMarginEnd
-            sapUiViewDisplayBlock
-          "
-      >
-        <!-- Список показателей для выбора -->
-        <core:Fragment
-            fragmentName="view.LeftTable"
-            type="XML"
-        />
-        <!-- Список выбранных показателей -->
-        <core:Fragment
-            fragmentName="view.RightTable"
-            type="XML"
-        />
-      </l:HorizontalLayout>
-    </content>
-    <footer>
-      <Bar>
-        <contentLeft>
-
-        </contentLeft>
-        <contentMiddle>
-          <Label text="Выбор показателей"/>
-        </contentMiddle>
-      </Bar>
-    </footer>
-
-  </Page>
-</core:View>
+    xmlns:u="sap.ui.unified"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:m="sap.m"
+    xmlns="sap.suite.ui.commons"
+    class="viewPadding">
+    <!-- Начиная с API 1.44 этот Shell тоже объявлен устаревшим -->
+    <!-- Вот йопт нам делать больше нефиг, как гоняться за их придумками -->
+    <!-- Правильно Джоэл писал, что успеха добиваются те компании, которые в меньшей степени зависят от таких вот выдумок больших корпораций -->
+    <u:Shell id="myShell" icon="img//sng_new_logo.png">
+        <u:headItems>
+            <!-- <u:ShellHeadItem tooltip="Configuration" icon="sap-icon://menu2" press="handlePressConfiguration"/> -->
+            <!-- <u:ShellHeadItem tooltip="Home" icon="sap-icon://home" visible="false" press="handlePressHome"/> -->
+        </u:headItems>
+        <!-- <u:headEndItems>
+            <u:ShellHeadItem icon="sap-icon://hint" tooltip="Logoff" press="handleLogoffPress"/>
+        </u:headEndItems> -->
+        <u:user>
+            <u:ShellHeadUserItem
+                image="sap-icon://person-placeholder"
+                username="{session>/userName}"
+                showPopupIndicator="false"/>
+        </u:user>
+        <u:content>
+            <m:Panel id="panelApps" width="auto" expandable="true" expand="onPanelExpand" class="sapUiResponsiveMargin">
+                <m:headerToolbar>
+                    <m:Toolbar height="3rem">
+                        <m:Title text="Приложения"/>
+                    </m:Toolbar>
+                </m:headerToolbar>
+                <m:content>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop  myGenericTile"
+                        header="Репозиторий"
+                        press="handlePressGoRepo">
+                        <tileContent>
+                            <TileContent unit="Переход в репозиторий">
+                                <content></content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop  myGenericTile "
+                        header="Системные приложения"
+                        press="_dialogSystemAppsOpen">
+                        <!-- <tileContent>
+                            <TileContent>
+                                <content></content>
+                            </TileContent>
+                        </tileContent> -->
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop  myGenericTile "
+                        header="Аудит изменений"
+                        press="handlePressAudit">
+                       
+                    </GenericTile>
+                </m:content>
+            </m:Panel>
+            <m:Panel id="panelBo" width="auto" expandable="true" expand="onPanelExpand" class="sapUiResponsiveMargin">
+                <m:headerToolbar>
+                    <m:Toolbar>
+                        <core:Icon src="sap-icon://wallet"/>
+                        <m:Title text="Бизнес-Объекты"/>
+                    </m:Toolbar>
+                </m:headerToolbar>
+                <m:content>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Просмотр"
+                        state="{= ${count>/countCard} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressViewAllCard">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/countCard}"
+                                        icon="sap-icon://display"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Создать"
+                        press="handlePressCreateNewCard">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent icon="sap-icon://add" nullifyValue="false"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Изменить"
+                        state="{= ${count>/card/change} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handleChangeCard">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/card/change}"
+                                        icon="sap-icon://edit"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Согласовать"
+                        state="{= ${count>/card/approve} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handleAdmitCard">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/card/approve}"
+                                        icon="sap-icon://accept"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiMediumMarginBegin sapUiTinyMarginTop myGenericTile tileLayout sapUiTinyMarginEnd"
+                        header="Установить связь"
+                        press="handlePressSetLink">
+                        <!-- <tileContent>
+                            <TileContent>
+                                <content></content>
+                            </TileContent>
+                        </tileContent> -->
+                    </GenericTile>
+                </m:content>
+            </m:Panel>
+            <m:Panel id="panelDict" width="auto" expandable="true" expand="onPanelExpand" class="sapUiResponsiveMargin">
+                <m:headerToolbar>
+                    <m:Toolbar>
+                        <core:Icon src="sap-icon://list"/>
+                        <m:Title text="Справочники"/>
+                    </m:Toolbar>
+                </m:headerToolbar>
+                <m:content>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Просмотр"
+                        state="{= ${count>/countDict} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressShowDicts">
+                        <tileContent>
+                            <TileContent >
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/countDict}"
+                                        icon="sap-icon://display"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout" header="Создать" press="handlePressCreateDict">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent icon="sap-icon://add" nullifyValue="false"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Изменить"
+                        state="{= ${count>/dict/change} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressChangeDict">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/dict/change}"
+                                        icon="sap-icon://edit"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Согласовать"
+                        state="{= ${count>/dict/approve} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressAdmitDict">
+                        <tileContent>
+                            <TileContent >
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/dict/approve}"
+                                        icon="sap-icon://accept"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                </m:content>
+            </m:Panel>
+            <m:Panel id="panelCalc" width="auto" expandable="true" expand="onPanelExpand" class="sapUiResponsiveMargin">
+                <m:headerToolbar>
+                    <m:Toolbar>
+                        <core:Icon src="sap-icon://performance"/>
+                        <m:Title text="Варианты расчетов показателей"/>
+                    </m:Toolbar>
+                </m:headerToolbar>
+                <m:content>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Просмотр"
+                        state="{= ${count>/countCalc} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressShowCalcs">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/countCalc}"
+                                        icon="sap-icon://display"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout" header="Создать" press="handlePressCreateCalc">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent icon="sap-icon://add" nullifyValue="false"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Изменить"
+                        state="{= ${count>/calc/change} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressEditCalc">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/calc/change}"
+                                        icon="sap-icon://edit"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Согласовать"
+                        state="{= ${count>/calc/approve} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressAdmitCalc">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/calc/approve}"
+                                        icon="sap-icon://accept"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                </m:content>
+            </m:Panel>
+            <m:Panel id="panelIm" width="auto" expandable="true" expand="onPanelExpand" class="sapUiResponsiveMargin">
+                <m:headerToolbar>
+                    <m:Toolbar>
+                        <core:Icon src="sap-icon://overview-chart"/>
+                        <m:Title text="Информационные модели"/>
+                    </m:Toolbar>
+                </m:headerToolbar>
+                <m:content>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Просмотр"
+                        state="{= ${count>/countIas} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressShowIm">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/countIas}"
+                                        icon="sap-icon://display"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout" header="Создать" press="handlePressCreateIm">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent icon="sap-icon://add" nullifyValue="false"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Изменить"
+                        state="{= ${count>/ias/change} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressEditIm">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/ias/change}"
+                                        icon="sap-icon://edit"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                    <GenericTile
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop myGenericTile tileLayout"
+                        header="Согласовать"
+                        state="{= ${count>/ias/approve} > 0 ? 'Loaded' : 'Disabled'}"
+                        press="handlePressAdmitIm">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <NumericContent
+                                        size="M"
+                                        value="{count>/ias/approve}"
+                                        icon="sap-icon://accept"
+                                        valueColor="Good"
+                                        indicator="None"
+                                        state="Loaded"
+                                        class="marginTopLeft"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                </m:content>
+            </m:Panel>
+        </u:content>
+    </u:Shell>
+</mvc:View>

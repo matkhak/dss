@@ -1,0 +1,33 @@
+-- Роль для создания/изменения/отправления на согласование заявок
+--
+-- Включает в себя app-роль для запуска приложения
+-- и права на все необходимые объекты
+--
+-- Наследуется от базовой роли для доступа к вьюшкам
+
+role bobj_repo.start_tiles.roles::userrole_0427_admit_create
+extends role bobj_repo.start_tiles.roles::objrole_0427_admit_base
+{
+    -- app role
+    application privilege: bobj_repo.start_tiles::Create;
+
+    -- object roles
+    catalog sql object "Z_BOBJ_REPO"."SQ_T_CARD": SELECT;
+    catalog sql object "SYS"."VIEW_COLUMNS": SELECT; -- для массового маппинга
+
+    catalog sql object "Z_BOBJ_REPO"."T_ASSOCIATED_OBJECTS": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_CALC": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_CALC_ATTRIBUTE": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_CALC_FILTER": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_LINKED_CODEIT": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_MAPPED_LIBINDICATOR": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_LINKED_LO": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_CARD": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_ATTRIBUTE": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_MAPPING_ATTRIBUTE": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_HISTORY_STATUS": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_IAS": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_DICTIONARY": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_LINK": SELECT, INSERT, UPDATE, DELETE;
+    catalog sql object "Z_BOBJ_REPO"."T_LINK_TMP": SELECT, INSERT, UPDATE, DELETE; -- временно
+}

@@ -1,0 +1,38 @@
+-- Базовая роль для приложения admit
+--
+-- Включает в себя права на ЧТЕНИЕ всех необходимых объектов.
+--
+-- НЕ включает в себя никакой app роли
+-- НЕ включает в себя insert/update/delete ни на никакие таблицы
+
+role bobj_repo.start_tiles.roles::objrole_0427_admit_base
+{
+    -- tables
+    catalog sql object "_SYS_REPO"."ACTIVE_OBJECT": SELECT;
+    catalog sql object "SYS"."EFFECTIVE_PRIVILEGES": SELECT; -- для работы session.xsjs
+
+    catalog sql object "Z_BOBJ_REPO"."ZGLOBAL_PARAMETERS": SELECT;
+    catalog sql object "Z_BOBJ_REPO"."T_DICTIONARY": SELECT; 
+    catalog sql object "Z_BOBJ_REPO"."T_IAS": SELECT; 
+    catalog sql object "Z_BOBJ_REPO"."T_CARD": SELECT;
+    catalog sql object "Z_BOBJ_REPO"."T_CALC": SELECT;
+    catalog sql object "Z_BOBJ_REPO"."T_LINK": SELECT;
+    catalog sql object "Z_BOBJ_REPO"."T_LINK_TMP": SELECT; -- временно
+    
+    -- views
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_SP_ZKOD_IT": SELECT;
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_SP_SMSY_LOG_COMP": SELECT;
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_SP_ZSUIT_OWNERS": SELECT;
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_OBJECTS_DEP": SELECT;
+    -- catalog sql object "_SYS_BIC"."bobj_repo.views/CV_CARD_HISTORY": SELECT;
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_UNAPPROVED_OBJECTS": SELECT;    
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_CARD_DATA": SELECT;
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_SP_RESPONSIBLE_SERVICE": SELECT; 
+    -- catalog sql object "_SYS_BIC"."bobj_repo.views/CV_LIBINDICATORS": SELECT;
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_SP_TYPE_GROUP_SUBGROUP": SELECT;
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_COLUMNS": SELECT;
+    catalog sql object "_SYS_BIC"."bobj_repo.views/CV_LINKED_LO": SELECT;
+
+    catalog sql object "_SYS_BIC"."sngias.spravochniki.mm/CV_SP_USERS": SELECT;    
+       
+}
