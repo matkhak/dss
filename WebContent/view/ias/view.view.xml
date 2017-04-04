@@ -1,0 +1,65 @@
+<mvc:View
+    controllerName="controller.ias.iasForm"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns="sap.ui.table"
+	xmlns:m ="sap.m" >
+	<m:Page 	title="Просмотр информационных моделей" class="sapUiContentPadding">
+		
+		<m:headerContent>
+					<m:Button
+                    	icon="sap-icon://home"
+                    	tooltip="Вернуться в стартовое меню Репозитрия"
+                    	press="onReturnStartPage"
+                   />
+                   <m:ToolbarSeparator/>
+                   
+				</m:headerContent>
+		 <Table
+                id="table"
+                selectionMode="Single"
+                selectionBehavior="RowOnly"
+                rows="{iasData>/}"
+                visibleRowCountMode="Auto"
+                showNoData="false"
+                busyIndicatorDelay="0"
+                filter="filterPrice">
+           
+                <columns>
+                    <Column width="4rem" sortProperty="code" filterProperty="code">
+                        <m:Label text="ID"/>
+                        <template>
+                            <m:Text text="{iasData>code}"/>
+                        </template>
+                    </Column>
+                    <Column width="3rem">
+                        <m:Label text="Версия"/>
+                        <template>
+                            <m:Text text="{iasData>version}"/>
+                        </template>
+                    </Column>
+                    
+                    <Column width="15rem" sortProperty="name" filterProperty="name">
+                        <m:Label text="Название"/>
+                        <template>
+                            <m:Text text="{iasData>name}"/>
+                        </template>
+                    </Column>
+                    <Column width="6rem" id="columnDate" sortProperty="descr" filterProperty="descr">
+                        <m:Label text="Описание"/>
+                        <template>
+                            <m:Text text="{iasData>descr}"/>
+                        </template>
+                    </Column>
+                    
+                 
+                </columns>
+             
+            </Table>
+		
+		
+		
+		
+	</m:Page>
+</mvc:View>

@@ -1,0 +1,58 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+	
+	>
+	<Dialog title="Добавить Технический Объект" class="sapUiContentPadding" 
+	 contentWidth="50%" busyIndicatorDelay="0" afterClose="_handleAfterCloseDialog"  >
+		<content>
+				
+				<VBox id="inputObjectHanaBox">
+					<Label text="Система" labelFor="selectSystem"/>
+				<!--	<Select 
+                    id="selectSystem" 
+                    items="{systems>/}" 
+                    change="handleChangeSelectSystem"
+                    width="50%"
+                >
+						<core:ListItem key="{systems>link}" text="{systems>name}" />
+					</Select>  -->
+					<Label text="Наименование ТО" labelFor="inputName" required="true"/>
+					<Input
+                    id="inputName"
+                    type="Text"
+                    placeholder="Выберите ТО ..."
+                    showSuggestion="true"
+                    valueHelpOnly = "true"
+                    showValueHelp="true"
+                    valueHelpRequest="handleValueHelpAddTO"
+                    busyIndicatorDelay="0"
+                    class="sapUiSmallMarginBottom"
+                    value="{card>/associateTo/sViewName}"
+                    liveChange="resetValueState"
+                    suggestionItems="{listTO>/}">
+						<suggestionItems>
+							<core:Item text="{listTO>object}"/>
+						</suggestionItems>
+					</Input>
+					<Label text="Описание объекта" labelFor="textDescription" required="true"/>
+					<TextArea
+                    id="textDescription"
+                    placeholder="Введите описание ..."
+                    rows="5"
+                    liveChange="resetValueState"
+                    width="100%"
+                    value="{card>/associateTo/sDescr}" 
+                    valueStateText="Введите описание ТО"/>
+				</VBox>
+				
+		</content>
+		
+		<buttons>
+			<Button id="buttonAdd" text="Добавить" type="Accept" press="onAddTODialogSave"/>
+			<Button text="Закрыть" press="onAddTODialogClose"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

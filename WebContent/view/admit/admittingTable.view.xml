@@ -1,0 +1,90 @@
+<mvc:View
+    controllerName="controller.admit.admittingTable"
+    xmlns="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:m="sap.m">
+    <m:Page enableScrolling="false" title="Согласование карточек" class="sapUiContentPadding">
+        <m:headerContent>
+            <m:Button icon="sap-icon://home" tooltip="Вернуться в стартовое меню Репозитрия" press="onReturnStartPage"/>
+            <m:ToolbarSeparator/>
+        </m:headerContent>
+        <m:content>
+            <Table
+                id="table"
+                selectionMode="MultiToggle"
+                selectionBehavior="RowSelector"
+                rows="{listUnapprovedObjects>/}"
+                visibleRowCountMode="Auto"
+                showNoData="false"
+                busyIndicatorDelay="0"
+                rowSelectionChange="changeButtonsText"
+                filter="filterPrice">
+                <toolbar>
+                    <m:Toolbar>
+                        <m:Button id="buttonAccept" type="Accept" icon="sap-icon://accept" visible="false" press="openAddCommentDialog"/>
+                        <m:Button id="buttonDecline" icon="sap-icon://decline" visible="false" press="openAddCommentDialog"/>
+                        <m:ToolbarSpacer/>
+                        <m:ToggleButton icon="sap-icon://person-placeholder" tooltip="Только мои заявки" press="toggleAvailabilityFilter"/>
+                        <m:SearchField liveChange="onFilter" width="15rem"/>
+                        <m:ToolbarSeparator/>
+                        <m:Button icon="sap-icon://process" tooltip="Посмотреть содержимое объекта" press="gotoObject"/>
+                    </m:Toolbar>
+                </toolbar>
+                <columns>
+                    <Column width="4rem" sortProperty="iId" filterProperty="iId">
+                        <m:Label text="ID"/>
+                        <template>
+                            <m:HBox>
+                                <m:Text text="{listUnapprovedObjects>iId}" class="sapUiTinyMarginEnd" tooltip="Идентификатор"/>
+                                <m:Text text="({listUnapprovedObjects>iVersion})" tooltip="Номер версии" class="GrayColor"/>
+                            </m:HBox>
+                        </template>
+                    </Column>
+                    <!-- <Column width="3rem">
+                        <m:Label text="Версия"/>
+                        <template>
+                            <m:Text text="{listUnapprovedObjects>iVersion}"/>
+                        </template>
+                    </Column> -->
+
+                    <Column width="15rem" sortProperty="sName" filterProperty="sName">
+                        <m:Label text="Название"/>
+                        <template>
+                            <m:Text text="{listUnapprovedObjects>sName}"/>
+                        </template>
+                    </Column>
+                    <Column width="6rem" id="columnDate" sortProperty="sDate" filterProperty="sDate">
+                        <m:Label text="Дата создания"/>
+                        <template>
+                            <m:Text text="{listUnapprovedObjects>sDate}"/>
+                        </template>
+                    </Column>
+                    <Column width="7rem" id="authorColumn" sortProperty="sAuthor" filterProperty="sAuthor">
+                        <m:Label text="Автор"/>
+                        <template>
+                            <m:Text text="{listUnapprovedObjects>sAuthor}"/>
+                        </template>
+                    </Column>
+
+                    <Column width="7rem" sortProperty="sStatusIs" filterProperty="sStatusIs">
+                        <m:Label text="Текущий статус"/>
+                        <template>
+                            <m:Text text="{listUnapprovedObjects>sStatusIs}"/>
+                        </template>
+                    </Column>
+
+                    <Column width="9rem">
+                        <m:Label text="Комментарий"/>
+                        <template>
+                            <m:Text text="{listUnapprovedObjects>sComment}"/>
+                        </template>
+                    </Column>
+
+                </columns>
+
+            </Table>
+        </m:content>
+    </m:Page>
+</mvc:View>

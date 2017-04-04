@@ -1,0 +1,76 @@
+<mvc:View
+    controllerName="controller.show.viewAllObjects"
+    xmlns="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:m="sap.m">
+    <m:Page enableScrolling="false" title="Просмотр списка объектов" class="sapUiContentPadding">
+        <m:headerContent>
+            <m:ToolbarSpacer/>
+            <m:Button icon="sap-icon://home" tooltip="Вернуться в стартовое меню Репозитрия" press="onReturnStartPage"/>
+        </m:headerContent>
+        <m:content>
+            <Table
+                id="table"
+                selectionMode="Single"
+                selectionBehavior="RowSelector"
+                navigationMode="Paginator"
+                rows="{listCards>/}"
+                visibleRowCountMode="Auto"
+                showNoData="false"
+                busyIndicatorDelay="0"
+                rowSelectionChange="changeButtonsText">
+                <toolbar>
+                    <m:Toolbar>
+                        <m:ToolbarSpacer/>
+                        <m:SearchField liveChange="onFilter" width="15rem"/>
+                        <m:ToolbarSeparator/>
+                        <m:Button icon="sap-icon://process" tooltip="Посмотреть содержимое объекта" press="gotoObject"/>
+                    </m:Toolbar>
+                </toolbar>
+                <columns>
+                    <Column sortProperty="iId" filterProperty="iId">
+                        <m:Label text="ID"/>
+                        <template>
+                            <m:HBox>
+                                <m:Text text="{listCards>iId}" class="sapUiTinyMarginEnd" tooltip="Идентификатор"/>
+                                <m:Text text="({listCards>iVersion})" tooltip="Номер версии" class="GrayColor"/>
+                            </m:HBox>
+                        </template>
+                    </Column>
+                    <Column id="columnIm" visible="false" sortProperty="sImName" filterProperty="sImName">
+                        <m:Label text="Информационная модель"/>
+                        <template>
+                            <m:Text text="{listCards>sImName}"/>
+                        </template>
+                    </Column>
+                    <Column id="columnInd" visible="false" sortProperty="sImName" filterProperty="sImName">
+                        <m:Label text="Показатель"/>
+                        <template>
+                            <m:Text text="{listCards>sInd}"/>
+                        </template>
+                    </Column>
+                    <Column sortProperty="sName" filterProperty="sName">
+                        <m:Label text="Название"/>
+                        <template>
+                            <m:Text text="{listCards>sName}"/>
+                        </template>
+                    </Column>
+                    <Column id="columnDate" sortProperty="sDate" filterProperty="sDate">
+                        <m:Label text="Дата создания"/>
+                        <template>
+                            <m:Text text="{listCards>sDate}"/>
+                        </template>
+                    </Column>
+                    <Column id="authorColumn" sortProperty="sAuthor" filterProperty="sAuthor">
+                        <m:Label text="Автор"/>
+                        <template>
+                            <m:Text text="{listCards>sAuthor}"/>
+                        </template>
+                    </Column>
+                </columns>
+            </Table>
+        </m:content>
+    </m:Page>
+</mvc:View>

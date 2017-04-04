@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+        title="Показатели"
+        class="sapUiPopupWithPadding"
+        items="{
+            path : 'indicators>/',
+            sorter : {
+                path : 'sInd'
+            }
+        }"
+        liveChange="_indicatorHelpSearch"
+        confirm="_indicatorHelpClose"
+        cancel="_indicatorHelpClose"
+        busyIndicatorDelay="0">
+        <items>
+            <StandardListItem description="{indicators>sShortName}"
+            		 title="{indicators>sInd}" 
+            		 info="{indicators>sUnitName}"
+            		 tooltip="{indicators>sFullName}"/>
+        </items>
+    </SelectDialog>
+</core:FragmentDefinition>

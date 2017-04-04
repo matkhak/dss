@@ -1,0 +1,187 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+    controllerName="controller.card.link.cardLink">
+
+    <NavContainer id="navCon" width="100%" height="100%" class="navContainerControl sapUiSmallMarginBottom">
+
+        <Page id="p1" title="Связи между бизнес-объектами">
+            <headerContent>
+                <Button icon="sap-icon://home" tooltip="Вернуться в стартовое меню Репозитрия" press="onReturnStartPage"/>
+                <ToolbarSpacer/>
+            </headerContent>
+
+            <FlexBox alignItems="Start" justifyContent="Center">
+                <Label text="Инфо-модель" required="true" class="sapUiSmallMarginTop sapUiLargeMarginEnd"/>
+                <Select id="sIM" items="{infoModel>/}" forceSelection="false" width="25em" change="onIMChange">
+                    <core:Item key="{infoModel>codeValue}" text="{infoModel>name}"/>
+                </Select>
+            </FlexBox>
+
+            <t:Table
+                id="table"
+                selectionMode="Single"
+                selectionBehavior="RowOnly"
+                rows="{links>/}"
+                visibleRowCountMode="Auto"
+                showNoData="false"
+                busyIndicatorDelay="0"
+                rowSelectionChange="changeButtonsText"
+                filter="filterPrice">
+                <t:toolbar>
+                    <Toolbar enabled="true">
+                        <Title text="Все связи между БО"/>
+                        <Button text="Добавить" icon="sap-icon://add" tooltip="Добавить новую связь между бизнес-объектами" press="onPressAdd"/>
+                        <ToolbarSeparator/>
+                        <Button text="Изменить" icon="sap-icon://edit" tooltip="Изменить выбранную связь" press="onPressChange"/>
+                        <ToolbarSeparator/>
+                        <Button
+                            text="Удалить"
+                            icon="sap-icon://delete"
+                            tooltip="Удалить выбранную связь между бизнес-объектами"
+                            press="openAddConfirmDialog"/>
+                    </Toolbar>
+                </t:toolbar>
+                <t:columns>
+                    <t:Column width="4rem" id="iBO1" sortProperty="iBO1" filterProperty="iBO1">
+                        <Label text="БО 1"/>
+                        <t:template>
+                            <Text text="{links>bo1}"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="4rem" id="iBO2" sortProperty="iBO2" filterProperty="iBO2">
+                        <Label text="БО 2"/>
+                        <t:template>
+                            <Text text="{links>bo2}"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="4rem" id="iAtr1" sortProperty="iAtr1" filterProperty="iAtr1">
+                        <Label text="Атрибуты БО1"/>
+                        <t:template>
+                            <Text text="{links>atr1}"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="4rem" id="iAtr2" sortProperty="iAtr2" filterProperty="iAtr2">
+                        <Label text="Атрибуты БО2"/>
+                        <t:template>
+                            <Text text="{links>atr2}"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="2rem" id="sType" sortProperty="sType" filterProperty="sType">
+                        <Label text="Тип связи"/>
+                        <t:template>
+                            <Text text="{links>type}"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="4rem" id="sComment" sortProperty="sComment" filterProperty="sComment">
+                        <Label text="Описание"/>
+                        <t:template>
+                            <Text text="{links>description}"/>
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+
+            </t:Table>
+
+        </Page>
+
+        <Page id="p2" title="Установление связи между двумя бизнес-объектами">
+            <headerContent>
+                <Button icon="sap-icon://home" tooltip="Вернуться в стартовое меню Репозитрия" press="onReturnStartPage"/>
+                <ToolbarSpacer/>
+            </headerContent>
+
+            <FlexBox alignItems="Start" justifyContent="Start">
+
+                <VBox class="sapUiSmallMarginEnd sapUiLargeMarginBegin">
+                    <Label text="Бизнес-объект 1" required="true"/>
+                    <Select id="sBO1" items="{boModel>/}" forceSelection="false" width="20em" change="onBO1Change">
+                        <core:Item key="{boModel>iId}:{boModel>iVersion}" text="{boModel>sName}"/>
+                    </Select>
+                </VBox>
+
+                <VBox class="sapUiSmallMarginEnd">
+                    <Label text="   "/>
+                    <core:Icon
+                        id="imgLink"
+                        src="sap-icon://overlay"
+                        class="sapUiSmallMarginTop"
+                        color="#E60017">
+                    </core:Icon>
+                </VBox>
+
+                <VBox>
+                    <Label text="Бизнес-объект 2" required="true"/>
+                    <Select id="sBO2" items="{boModel>/}" forceSelection="false" width="20em" change="onBO2Change">
+                        <core:Item key="{boModel>iId}:{boModel>iVersion}" text="{boModel>sName}"/>
+                    </Select>
+                </VBox>
+
+            </FlexBox>
+
+            <FlexBox alignItems="Start" justifyContent="Start">
+                <Label text="Тип связи:" textAlign="Right" required="true" class="sapUiSmallMarginTop sapUiLargeMarginBegin"/>
+                <Select
+                    id="sJoin"
+                    items="{linktype>/}"
+                    forceSelection="false"
+                    width="14em"
+                    change="onInfoModelChange"
+                    class="sapUiSmallMarginBegin">
+                    <core:Item key="{linktype>code}" text="{linktype>name}"/>
+                </Select>
+            </FlexBox>
+            <VBox class="sapUiLargeMarginTop sapUiLargeMarginBegin">
+                <Label text="Соответствующие атрибуты каждого из связываемых бизнес-объектов:" required="true"/>
+                <l:VerticalLayout id="m" content="{selected>/}">
+                    <l:HorizontalLayout>
+                        <Select items="{leftAll>/}" selectedKey="{selected>left}" width="20em" >
+                            <core:Item key="{leftAll>iId}" text="{leftAll>sName}"/>
+                        </Select>
+                        <Select items="{rigthAll>/}" selectedKey="{selected>right}" width="20em" class="sapUiLargeMarginBegin" >
+                            <core:Item key="{rigthAll>iId}" text="{rigthAll>sName}"/>
+                        </Select>
+                        <Button
+                            id="buttonDelete"
+                            icon="sap-icon://less"
+                            press="onPressDelAttr"
+                            visible__="{
+                                path: 'attrs>/first',
+                                formatter: 'controller.card.link.formatter.getVisibleAddButton'
+                            }"/>
+                        <Button
+                            id="buttonAdd"
+                            icon="sap-icon://add"
+                            press="onPressAddAttr"
+                            visible__="{
+                                path: 'attrs>/first',
+                                formatter: 'controller.card.link.formatter.getVisibleAddButton'
+                            }"/>                    
+                    </l:HorizontalLayout>
+                </l:VerticalLayout>
+            </VBox>
+            <HBox alignItems="Center" justifyContent="Center">
+                <Button
+                    text="Сохранить"
+                    id="buSave"
+                    icon="sap-icon://save"
+                    press="onPressSave"
+                    type="Accept"
+                    class="sapUiLargeMarginTop sapUiLargeMarginEnd"/>
+                <Button
+                    text="Отмена"
+                    id="buCancel"
+                    icon="sap-icon://sys-cancel"
+                    press="onPressCancel"
+                    type="Reject"
+                    class="sapUiLargeMarginTop"/>
+            </HBox>
+
+        </Page>
+
+    </NavContainer>
+
+</mvc:View>

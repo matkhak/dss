@@ -1,0 +1,15 @@
+[{
+    "operation": "="
+}, {
+    "operation": "<"
+}, {
+    "operation": "<="
+}, {
+    "operation": ">"
+}, {
+    "operation": ">="
+}, {
+    "operation": "<>"
+}, {
+    "operation": "In"
+}]

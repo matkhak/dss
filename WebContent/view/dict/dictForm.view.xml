@@ -1,0 +1,135 @@
+<mvc:View
+    controllerName="controller.dict.dictForm"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:table="sap.ui.table"
+    xmlns:core="sap.ui.core">
+    <Page class="sapUiContentPadding" showNavButton="true" navButtonPress="onPressBack">
+        <headerContent>
+            <Button icon="sap-icon://home" tooltip="Вернуться в стартовое меню Репозитрия" press="onReturnStartPage"/>
+            <ToolbarSeparator/>
+        </headerContent>
+        <content>
+            <l:Grid defaultSpan="L12 M12 S12" width="auto">
+                <l:content>
+                    <f:SimpleForm
+                        maxContainerCols="2"
+                        layout="ResponsiveGridLayout"
+                        title="Форма справочника"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        columnsL="2"
+                        columnsM="2">
+                        <f:content>
+                            <core:Title text="Основная информация"/>
+                            <Label text="Название" textAlign="End" labelFor="NAME" required="true"/>
+                            <Input value="{dict>/name}" id="NAME"></Input>
+                            <Label text="Описание объекта" textAlign="End" labelFor="DESCRIPTION" required="true" tooltip="Описание объекта"/>
+                            <TextArea value="{dict>/description}" id="DESCRIPTION" rows="2"/>
+                            <Label
+                                text="Ответственная служба"
+                                class="spaceLongLabel"
+                                textAlign="End"
+                                labelFor="LO-SERVICE"
+                                required="true"
+                                tooltip="Ответственная служба"/>
+                            <Select selectedKey="{dict>/responsibleService}" id="LO-SERVICE" items="{respService>/}" forceSelection="false">
+                                <core:Item key="{respService>ID}" text="{respService>NAME}"/>
+                            </Select>
+                            <Label text="Ответственный за ЛО" textAlign="End" labelFor="LO-OTVETSTV" required="true" tooltip="Ответственный за ЛО"/>
+                            <Input
+                                id="LO-OTVETSTV"
+                                value="{dict>/responsiblePerson}"
+                                type="Text"
+                                placeholder="Выберите ответственного"
+                                showSuggestion="true"
+                                showValueHelp="true"
+                                editable="true"
+                                enabled="true"
+                                valueHelpOnly="true"
+                                valueHelpRequest="responsPersonHelp"
+                                suggestionItems="{/name}">
+                                <suggestionItems>
+                                    <core:Item text="{name}"/>
+                                </suggestionItems>
+                            </Input>
+                            <Label text=""/>
+                            <CheckBox
+                                id="checkBoxGlobal"
+                                text="Глобальный"
+                                tooltip="Глобальный - справочник, который не привязан ни к одной ИМ"
+                                selected="true"
+                                select="onCheckBoxGlobal"/>
+                            <Label id="labelGlobal" text="Инфомодель" textAlign="End" labelFor="selectGlobal" required="true" visible="false"/>
+                            <Select id="selectGlobal" selectedKey="{dict>/iasCodeValue}" items="{list_ias>/}" visible="false">
+                                <core:Item key="{list_ias>codeValue}" text="{list_ias>name}"/>
+                            </Select>
+
+                            <core:Title text="Дополнительная информация"/>
+                            <Label text="Владелец" type="Emphasized" textAlign="End" labelFor="OWNER"/>
+                            <Select selectedKey="{dict>/ownerDepartment}" id="OWNER" items="{owner>/}">
+                                <core:Item key="{owner>ID}" text="{owner>NAME}"/>
+                            </Select>
+                            <Label
+                                id="Label_IS-SOURSE"
+                                text="ИС-первоисточник"
+                                type="Emphasized"
+                                textAlign="End"
+                                labelFor="IS-SOURCE"
+                                tooltip="ИС-первоисточник"/>
+                            <Input
+                                id="IS-SOURCE"
+                                value="{dict>/originSystem}"
+                                type="Text"
+                                placeholder="Выберите объект"
+                                showSuggestion="true"
+                                showValueHelp="true"
+                                editable="true"
+                                enabled="true"
+                                valueHelpOnly="true"
+                                valueHelpRequest="originSystemHelp"
+                                suggestionItems="{/object}">
+                                <suggestionItems>
+                                    <core:Item text="{object}"/>
+                                </suggestionItems>
+                            </Input>
+                            <Label/>
+                            <CheckBox selected="{dict>/isTempDepend}" text="Временно-зависимость"/>
+
+                            <core:Title text="Технический объект"/>
+                            <Label text="Объект" textAlign="End" tooltip="Объект"/>
+                            <Input
+                                id="idInputTO"
+                                type="Text"
+                                placeholder="Выберите код из средства поиска (справа)"
+                                showSuggestion="true"
+                                showValueHelp="true"
+                                editable="true"
+                                enabled="true"
+                                value="{dict>/sViewName}"
+                                valueHelpOnly="true"
+                                valueHelpRequest="handleValueHelpAddTO"
+                                suggestionItems="{/object}">
+                                <suggestionItems>
+                                    <core:Item text="{object}"/>
+                                </suggestionItems>
+                            </Input>
+                        </f:content>
+                    </f:SimpleForm>
+                </l:content>
+            </l:Grid>
+
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button id="buttonSaveCard" icon="sap-icon://save" text="Сохранить" type="Accept" press="onSave"/>
+                <Button icon="sap-icon://sys-cancel" text="Отмена" type="Reject" press="onPressBack"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

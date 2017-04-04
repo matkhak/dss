@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+
+    <Dialog title="Подтвердите операцию" busyIndicatorDelay="0" class="sapUiContentPadding" contentWidth="7%">
+        <content>
+            <Label text="Действительно удалить запись?" />
+        </content>
+        <buttons>
+            <Button text="Да" type="Accept" press="onAddConfirmDialogYes"/>
+            <Button text="Отмена" press="onAddConfirmDialogCancel"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

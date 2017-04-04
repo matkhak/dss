@@ -1,0 +1,188 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    controllerName="controller.card.cardForm"
+    xmlns:table="sap.ui.table"
+    xmlns:core="sap.ui.core">
+    <Page class="sapUiContentPadding" >
+        <headerContent>
+            <Button icon="sap-icon://home" tooltip="Вернуться в стартовое меню Репозитрия" press="onReturnStartPage"/>
+            <ToolbarSpacer/>
+        </headerContent>
+
+        <content>
+            <l:Grid defaultSpan="L12 M12 S12" width="auto">
+                <l:content>
+                    <f:SimpleForm
+                        maxContainerCols="2"
+                        layout="ResponsiveGridLayout"
+                        title="Форма карточки"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        columnsL="2"
+                        columnsM="2">
+                        <f:content>
+                            <core:Title text="Основная информация"/>
+                            <Label text="Инфомодель" textAlign="End" labelFor="IAS" required="true"/>
+                            <Select id="IAS" selectedKey="{card>/ias/codeValue}" items="{list_ias>/}" change="onIASChange">
+                                <core:Item key="{list_ias>codeValue}" text="{list_ias>name}"/>
+                                	
+                            </Select>
+                            <Label text="Название" textAlign="End" labelFor="NAME" required="true"/>
+                            <Input value="{card>/name}" id="NAME"/>
+                            <Label text="Описание объекта" textAlign="End" labelFor="DESCRIPTION" required="true" tooltip="Описание объекта"/>
+                            <TextArea value="{card>/description}" id="DESCRIPTION" rows="2"/>
+                            
+                            <Label text="ИТ-решение" textAlign="End" labelFor="IT_CODE" />
+                            <Input value="{it_dec>/code_it}" id="IT_CODE" editable="false" />
+                           
+                            <Label text="Куратор " textAlign="End" labelFor="KUR_IT_CODE" />
+                            <Input value="{it_dec>/kurator}" id="KUR_IT_CODE" editable="false" />
+                            
+                            <Label text="Разработчик" textAlign="End" labelFor="DEV_IT_CODE" />
+                            <Input value="{it_dec>/razrab}" id="DEV_IT_CODE" editable="false" />
+                            
+                            
+                            <Label text="Сопровождающий " textAlign="End" labelFor="SUP_IT_CODE" />
+                            <Input value="{it_dec>/soprov}" id="SUP_IT_CODE" editable="false" />
+                            
+                            
+                            
+                          <!--  
+                            
+                            <Label
+                                text="Отвестсвенная служба за ЛО"
+                                class="spaceLongLabel"
+                                textAlign="End"
+                                labelFor="LO-SERVICE"
+                                required="true"
+                                tooltip="Отвестсвенная служба за ЛО"/>
+                            <Select id="LO-SERVICE" selectedKey="{card>/responsibleService/id}" items="{respService>/}" forceSelection="false">
+                                <core:Item key="{respService>ID}" text="{respService>NAME}"/>
+                            </Select>
+                            <Label text="Ответственный за ЛО" textAlign="End" labelFor="LO-OTVETSTV" required="true" tooltip="Ответственный за ЛО"/>
+                            <Input
+                                id="LO-OTVETSTV"
+                                value="{card>/responsiblePerson}"
+                                type="Text"
+                                showValueHelp="true"
+                                valueHelpOnly="true"
+                                valueHelpRequest="responsPersonHelp"/>
+                            -->    
+                                
+                            <core:Title text="Дополнительная информация"/>
+              <!--          <Label text="Владелец" type="Emphasized" textAlign="End" labelFor="OWNER"/>
+                            <Select id="OWNER" selectedKey="{card>/ownerDepartment/id}" items="{owner>/}">
+                                <core:Item key="{owner>ID}" text="{owner>NAME}"/>
+                            </Select>   -->
+                            <Label text="Синонимы" textAlign="End" labelFor="SINONYM"/>
+                            <Input id="SINONYM" value="{card>/synonims}" placeholder="Разделяйте синонимы точкой с запятой (;)"/>
+                            <Label
+                                id="Label_IS-SOURSE"
+                                text="ИС-первоисточник"
+                                type="Emphasized"
+                                textAlign="End"
+                                labelFor="IS-SOURCE"
+                                tooltip="ИС-первоисточник"/>
+                            <Input
+                                id="IS-SOURCE"
+                                value="{card>/originSystem}"
+                                type="Text"
+                                showValueHelp="true"
+                                valueHelpOnly="true"
+                                valueHelpRequest="originSystemHelp"/>
+                            <core:Title text="Технический объект"/>
+                            <Label text="Объект" textAlign="End" tooltip="Объект"/>
+                            <Input
+                                id="idInputTO"
+                                type="Text"
+                                showValueHelp="true"
+                                value="{card>/associateTo/sViewName}"
+                                valueHelpOnly="true"
+                                valueHelpRequest="handleValueHelpAddTO"/>
+                            <Label text="Описание" labelFor="systemTO"/>
+                            <Input id="descrTO" value="{card>/associateTo/sDescr}"/>
+                            <Label text="Кэш" labelFor="casheTO"/>
+                            <Input id="casheTO" value="{card>/associateTo/sCacheTable}"/>
+
+                        </f:content>
+                    </f:SimpleForm>
+                </l:content>
+            </l:Grid>
+            <table:Table
+                id="tableAttrs"
+                class="sapUiSmallMargin"
+                selectionMode="Single"
+                navigationMode="Paginator"
+                rows="{card>/attributes}"
+                visibleRowCount="20"
+                selectionBehavior="RowSelector"
+                visibleRowCountMode="Interactive"
+                rowSelectionChange="onTablleAttrsSelectionChange"
+                showNoData="false">
+                <table:toolbar>
+                    <Toolbar>
+                        <Button id="buttonAdd" icon="sap-icon://add" tooltip="Добавить" press="openAddAttrDialog"/>
+                        <Button id="buttonEdit" icon="sap-icon://edit" tooltip="Изменить" press="onEditAttr" enabled="false"/>
+                        <Button id="buttonUpload" icon="sap-icon://upload" tooltip="Массовая загрузка" press="showMappingUploadDialog"/>
+                        <ToolbarSeparator/>
+                        <ToolbarSpacer/>
+                        <Button id="buttonDelete" icon="sap-icon://delete" tooltip="Удаление" press="onDeleteAttrQuestion" enabled="false"/>
+                        <Label id="textDeleteQuestion" text="Вы уверены?" visible="false"/>
+                        <Button id="buttonDeleteYes" text="Да" type="Reject" press="onDeleteAttrYes" visible="false"/>
+                        <Button id="buttonDeleteNo" text="Нет" press="onDeleteAttrgNo" visible="false"/>
+                    </Toolbar>
+                </table:toolbar>
+                <table:columns>
+                    <table:Column width="3%">
+                        <Text text="Ключ"/>
+                        <table:template>
+                            <core:Icon src="{= ${card>isKeyAttr} === true ? 'sap-icon://key' : null}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="15%" filterProperty="attrName">
+                        <Text text="Атрибут"/>
+                        <table:template>
+                            <Text text="{card>attrName}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="26%">
+                        <Text text="Описание"/>
+                        <table:template>
+                            <Text text="{card>attrDescr}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="26%">
+                        <Text text="Комментарий"/>
+                        <table:template>
+                            <Text text="{card>attrComment}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="15%">
+                        <Text text="Сопоставление"/>
+                        <table:template>
+                            <core:Icon src="{= ${card>fieldKey} ? 'sap-icon://accept' : 'sap-icon://decline'}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="15%">
+                        <Text text="Справочник"/>
+                        <table:template>
+                            <core:Icon src="{= ${card>dictFieldKey} ? 'sap-icon://accept' : 'sap-icon://decline'}"/>
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button id="buttonSaveCard" icon="sap-icon://save" text="Сохранить" type="Accept" press="onSaveCard"/>
+                <Button icon="sap-icon://sys-cancel" text="Отмена" type="Reject" press="onPressBack"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

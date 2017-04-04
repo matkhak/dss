@@ -1,0 +1,13 @@
+[{
+    "name": "Объединение",
+    "code": "INNER JOIN"
+}, {
+    "name": "Объединение слева",
+    "code": "LEFT JOIN"
+}, {
+    "name": "Объединение справа",
+    "code": "RIGHT JOIN"
+}, {
+    "name": "Объединение внешнее",
+    "code": "OUTER JOIN"
+}]

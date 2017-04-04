@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+        title="Выберите справочник"
+        noDataText="Нет данных"
+        liveChange="_fieldHelpSearchDict"
+        confirm="_fieldHelpCloseDict"
+        cancel="_fieldHelpCloseDict"
+        items="{dicts>/}">
+        <StandardListItem title="{dicts>name}" description="{dicts>view}" info="{dicts>id}" type="Active"/>
+    </SelectDialog>
+</core:FragmentDefinition>

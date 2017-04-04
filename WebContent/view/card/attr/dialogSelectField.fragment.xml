@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+        title="Выберите поле"
+        class="sapUiPopupWithPadding"
+        items="{fields>/}"
+        liveChange="_fieldHelpSearch"
+        confirm="_fieldHelpClose"
+        cancel="_fieldHelpClose">
+        <StandardListItem title="{fields>column}"/>
+    </SelectDialog>
+</core:FragmentDefinition>

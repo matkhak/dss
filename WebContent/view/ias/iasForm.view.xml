@@ -1,0 +1,71 @@
+<mvc:View
+    controllerName="controller.ias.iasForm"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:table="sap.ui.table"
+    
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Page title="Форма информационной модели" class="sapUiContentPadding">
+        <headerContent>
+            <Button icon="sap-icon://home" tooltip="Вернуться в стартовое меню Репозитрия" press="onReturnStartPage"/>
+            <ToolbarSpacer/>
+        </headerContent>
+        <content>
+            <VBox width="100%" class="sapUiSmallMargin">
+                <Label text="Наименование" required="true"/>
+                <Input id="nameIAS" width="100%" value="{ias>/sName}"/>
+                <Label text="Описание" required="true"/>
+                <TextArea id="descrIAS" rows="3" width="100%" value="{ias>/sDescription}"/>
+                
+                 <table:Table
+                
+                id="tableCodes"
+                selectionMode="Single"
+                navigationMode="Paginator"
+                rows="{ias>/aCodes}"
+                visibleRowCount="5"
+                selectionBehavior="RowSelector"
+                rowSelectionChange="onTableSelectionChange"
+                showNoData="false">
+                <table:toolbar>
+                    <Toolbar>
+                        <Button id="buttonAdd" icon="sap-icon://add" tooltip="Добавить" press="openAddDialog"/>
+                        <ToolbarSeparator/>
+                        <ToolbarSpacer/>
+                        <Button id="buttonDelete" icon="sap-icon://delete" tooltip="Удаление" press="onDeleteQuestion" enabled="false"/>
+                        <Label id="textDeleteQuestion" text="Вы уверены?" visible="false"/>
+                        <Button id="buttonDeleteYes" text="Да" type="Reject" press="onDeleteYes" visible="false"/>
+                        <Button id="buttonDeleteNo" text="Нет" press="onDeleteNo" visible="false"/>
+                    </Toolbar>
+                </table:toolbar>
+                <table:columns>
+                   
+                    <table:Column width="30%">
+                        <Text text="Код"/>
+                        <table:template>
+                            <Text text="{ias>sCode}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="70%">
+                        <Text text="Наименование"/>
+                        <table:template>
+                            <Text text="{ias>sName}"/>
+                        </table:template>
+                    </table:Column>
+                    
+                </table:columns>
+            </table:Table>
+                
+                
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                    <ToolbarSpacer/>
+                <Button icon="sap-icon://save" text="Сохранить" press="onSave" type="Accept"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
