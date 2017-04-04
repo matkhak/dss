@@ -20,7 +20,7 @@
 
             "targets": {
                 "init": {
-                    "viewName": "init",
+                    "viewName": "view.init",
                     "viewType": "XML"
                 }
 
