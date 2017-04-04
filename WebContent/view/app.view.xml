@@ -9,7 +9,7 @@
     xmlns:custom="controls"
     xmlns:unified="sap.ui.unified"
     xmlns:core="sap.ui.core"
-    id="appID"
+
 >
   <custom:Shell
   icon="img/surgutneftegaz_small.png"
@@ -21,7 +21,7 @@
   title="Аналитическое рабочее место специалиста УОиОТ ОАО «Сургутнефтегаз»"
   >
     <custom:content>
-      <SplitApp id="splitContainer" mode="HideMode">
+      <SplitApp id="appID" mode="HideMode">
         <masterPages>
           <Page title="Список конфигураций">
             <subHeader>
