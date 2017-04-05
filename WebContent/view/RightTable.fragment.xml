@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+
+    
+>
+  <List  
+      class="mainpage__choosedlist"
+      noDataText="Показатели не выбраны"
+      mode="Delete"
+      delete="handleRemoveSelected"
+      items="{gSelectedInds>/}"
+  >
+    <headerToolbar>
+      <Toolbar>
+        <Label text="Выбранные показатели" />
+        <ToolbarSpacer />
+        <Button
+            icon="sap-icon://decline"
+            tooltip="Очистить список выбранных показателей"
+            press="handleClearAllSelected"
+        />
+      </Toolbar>
+    </headerToolbar>
+
+    <StandardListItem
+        title="{gSelectedInds>FNAME}"
+        description="{gSelectedInds>INDCD}"
+        visible="true"
+    />
+  </List>
+</core:FragmentDefinition>

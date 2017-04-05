@@ -1,0 +1,50 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"    
+>
+  <l:VerticalLayout
+      class="mainpage__indlist"
+  >
+    <Toolbar
+        design="Transparent"
+        class="indList__toolbar"
+    >
+      <CheckBox select="handleSelectAllInds" id="selectAllCheckBox"/>
+      <Label text="Список показателей" id="selectedCountLabel" />
+      <ToolbarSpacer />
+      <SearchField
+          liveChange="onLiveSearch"
+          id="idLiveSearch"
+          width="60%"
+          showSearchButton="false"
+      />
+    </Toolbar>
+    <ScrollContainer
+        class="gIndsScrollContainer"
+        horizontal="false"
+        vertical="true"
+    >
+      <List
+          id="allIndsList"
+          noDataText="Нет показателей"
+          mode="MultiSelect"
+          items="{gInds>/}"
+          includeItemInSelection="true"
+          selectionChange="handleIndSelection"
+          rememberSelections="false"
+
+          growing="true"
+          growingThreshold="50"
+          growingScrollToLoad="true"
+      >
+        <StandardListItem
+      		title="{gInds>FNAME}"
+            description="{gInds>INDCD}"
+            tooltip="{gInds>FNAME}"
+            selected="{gInds>selected}"
+        />
+      </List>
+    </ScrollContainer>
+  </l:VerticalLayout>
+</core:FragmentDefinition>
