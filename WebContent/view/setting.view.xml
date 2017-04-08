@@ -1,0 +1,281 @@
+<core:View class="mainPageView" 
+controllerName="controller.setting" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified">
+    <Panel class="sapUiResponsiveMargin" width="auto">
+        <headerToolbar>
+            <Toolbar height="3rem">
+                <Title text="Настройка параметров прогноза"/>
+            </Toolbar>
+        </headerToolbar>
+        <content>
+		    <f:SimpleForm columnsL="2" columnsM="2" emptySpanL="0" emptySpanM="0" labelSpanL="1" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2">
+                <f:content>
+                    <Label required="true" text="Горизонт прогнозирования, лет" textAlign="End"/>
+                    <Select>
+                        <core:Item key="0" text="1"/>
+                        <core:Item key="1" text="2"/>
+                        <core:Item key="2" text="3"/>
+                    </Select>
+                    <Label required="true" text="Режим прогнозирования" textAlign="End"/>
+                    <Select>
+                        <core:Item key="0" text="Скользящий"/>
+                        <core:Item key="1" text="Нарастающий"/>
+                    </Select>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Panel>
+    <Panel class="sapUiResponsiveMargin" width="auto">
+        <headerToolbar>
+            <Toolbar height="3rem">
+                <Title text="Настройка сценарных условий"/>
+            </Toolbar>
+        </headerToolbar>
+        <content>
+            <table:Table 
+            	class="sapUiSmallMargin" 
+            	
+            	navigationMode="Paginator" 
+            	rows="{scenario&gt;/}" 
+            	selectionMode="Single" 
+            	showNoData="false" 
+            	visibleRowCount="7">
+                <table:columns>
+                    <table:Column width="40%" filterProperty="FNAME">
+                        <Text text="Показатель"/>
+                        <table:template>
+                            <Text text="{scenario&gt;FNAME}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column  width="12%">
+                        <Text text="2016"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2016}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="12%">
+                        <Text text="2017"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2017}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="12%">
+                        <Text text="2018"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2018}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="12%">
+                        <Text text="2019"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2019}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="12%">
+                        <Text text="2020"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2020}"/>
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </content>
+    </Panel>
+    <Panel class="sapUiResponsiveMargin" width="auto">
+        <headerToolbar>
+            <Toolbar height="3rem">
+                <Title text="Ввод плановых значений"/>
+            </Toolbar>
+        </headerToolbar>
+        <content>
+            <table:Table 
+            	class="sapUiSmallMargin" 
+            	editable="true" 
+            	navigationMode="Paginator" 
+            	selectionMode="Single" 
+            	rows="{gSelectedInds>/}"
+            	showNoData="false" 
+            	visibleRowCount="5">
+                <table:columns>
+                    <table:Column width="40%" filterProperty="FNAME">
+                        <Text text="Показатель"/>
+                        <table:template>
+                            <Text  text="{gSelectedInds>FNAME}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column  width="12%">
+                        <Text text="2016"/>
+                        <table:template>
+                            <Input  value="{gSelectedInds>2016}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="12%">
+                        <Text text="2017"/>
+                        <table:template>
+                            <Input  value="{gSelectedInds>2017}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="12%">
+                        <Text text="2018"/>
+                        <table:template>
+                            <Input  value="{gSelectedInds>2018}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="12%">
+                        <Text text="2019"/>
+                        <table:template>
+                            <Input  value="{gSelectedInds>2019}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="12%">
+                        <Text text="2020"/>
+                        <table:template>
+                            <Input  value="{gSelectedInds>2020}"/>
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </content>
+    </Panel>
+    <Panel class="sapUiResponsiveMargin" width="auto">
+        <headerToolbar>
+            <Toolbar height="3rem">
+                <Title text="Настройка регресионной модели"/>
+            </Toolbar>
+        </headerToolbar>
+        <content>
+        <table:Table 
+        class="sapUiSmallMargin" 
+        editable="true" 
+        navigationMode="Paginator" 
+        selectionMode="Single" 
+        showNoData="false" 
+        rows="{equals>/}"
+        
+        visibleRowCount="5">
+                <table:columns>
+                    <table:Column filterProperty="INDCD">
+                        <Text text="Показатель"/>
+                        <table:template>
+                            <Text text="{equals&gt;INDCD}"/>
+                        </table:template>
+                    </table:Column>
+                    
+                    <table:Column >
+                        <Text text="Const"/>
+                        <table:template>
+                            <Text text="{equals&gt;const}"/>
+                        </table:template>
+                    </table:Column>
+                    
+                  <table:Column >
+                        <Text text="X1"/>
+                        <table:template>
+                            <Text text="{equals&gt;x1}"/>
+                        </table:template>
+                    </table:Column>
+                    
+                    <table:Column >
+                        <Text text="X2"/>
+                        <table:template>
+                            <Text text="{equals&gt;x2}"/>
+                        </table:template>
+                    </table:Column>
+                    
+                    <table:Column >
+                        <Text text="X3"/>
+                        <table:template>
+                            <Text text="{equals&gt;x3}"/>
+                        </table:template>
+                    </table:Column>
+                    
+                    <table:Column >
+                        <Text text="X4"/>
+                        <table:template>
+                            <Text text="{equals&gt;x4}"/>
+                        </table:template>
+                    </table:Column>
+                    
+                     <table:Column >
+                        <Text text="X5"/>
+                        <table:template>
+                            <Text text="{equals&gt;x5}"/>
+                        </table:template>
+                    </table:Column>
+                    
+                </table:columns>
+            </table:Table>
+                </content>
+        
+    </Panel>
+    <Panel class="sapUiResponsiveMargin" width="auto">
+        <headerToolbar>
+            <Toolbar height="3rem">
+                <Title text="Настройка нейронной сети"/>
+            </Toolbar>
+        </headerToolbar>
+        <content>
+            <f:SimpleForm columnsL="2" columnsM="2" emptySpanL="0" emptySpanM="0" labelSpanL="4" labelSpanM="2" layout="ResponsiveGridLayout" maxContainerCols="2">
+                <f:content>
+                    <core:Title text="Параметры нейрона"/>
+                    <Label required="true" text="Функция активации" textAlign="End"/>
+                    <Select>
+                        <core:Item key="0" text="Гиперболический синус"/>
+                        <core:Item key="1" text="Гиперболический тангенс"/>
+                        <core:Item key="2" text="Экспоненциальная"/>
+                    </Select>
+                    <Label required="true" text="Смещение" textAlign="End"/>
+                    <Switch state="false"/>
+                    <core:Title text="Структура персептрона"/>
+                    <Label required="true" text="Автоопределение" textAlign="End"/>
+                    <Switch state="false"/>
+                    <Label text="Количество нейронов на входном слое" textAlign="End"/>
+                    <Input/>
+                    <Label text="Количество нейронов на скрытом слое" textAlign="End"/>
+                    <Input/>
+                    <Label text="Количество нейронов на выходном слое" textAlign="End"/>
+                    <Input/>
+                    <core:Title text="Параметры обучения"/>
+                    <Label text="Скорость" textAlign="End"/>
+                    <Input/>
+                    <Label text="Момент" textAlign="End"/>
+                    <Input/>
+                    <Label text="максимальное количество эпох" textAlign="End"/>
+                    <Input/>
+                    <Label text="максимальное время, мин" textAlign="End"/>
+                    <Input/>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Panel>
+    <Panel class="sapUiResponsiveMargin" width="auto">
+        <headerToolbar>
+            <Toolbar height="3rem">
+                <Title text="Настройка случайного леса"/>
+            </Toolbar>
+        </headerToolbar>
+        <content>
+            <f:SimpleForm columnsL="2" columnsM="2" emptySpanL="0" emptySpanM="0" labelSpanL="4" labelSpanM="2" layout="ResponsiveGridLayout" maxContainerCols="2">
+                <f:content>
+                    <Label required="true" text="Глубина дерева" textAlign="End"/>
+                    <Input/>
+                    <Label text="Количество деревьев" textAlign="End"/>
+                    <Input/>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Panel>
+    <Panel class="sapUiResponsiveMargin" width="auto">
+        <headerToolbar>
+            <Toolbar height="3rem">
+                <Title text="Настройка модели авторегресии"/>
+            </Toolbar>
+        </headerToolbar>
+        <content>
+            <f:SimpleForm columnsL="2" columnsM="2" emptySpanL="0" emptySpanM="0" labelSpanL="4" labelSpanM="2" layout="ResponsiveGridLayout" maxContainerCols="2">
+                <f:content>
+                    <core:Title text="Поиск лучших параметров  ARIMA-модели производится автоматически"/>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Panel>
+</core:View>

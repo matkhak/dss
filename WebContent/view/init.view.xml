@@ -1,4 +1,11 @@
-<core:View class="mainPageView" controllerName="controller.init" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+<core:View class="mainPageView" 
+ controllerName="controller.init"
+ xmlns="sap.m" 
+ xmlns:core="sap.ui.core" 
+ xmlns:fb="sap.ui.comp.filterbar" 
+ xmlns:l="sap.ui.layout" 
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns:u="sap.ui.unified">
   <u:Shell icon="{/logo}" id="myShell">
     <u:headItems>
       <u:ShellHeadItem icon="sap-icon://menu2" press="handlePressConfiguration" tooltip="Configuration"/>
@@ -20,10 +27,58 @@
             <customHeader>
               <Bar>
                 <contentRight>
-                  <Button icon="sap-icon://arrow-right" iconFirst="false" id="navToDetailButton" press="navToDetail" text="Перейти к анализу"/>
+                  <Button
+				text="Главная страница"
+				press="handleNav">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+				<customData>
+					<core:CustomData
+						key="target"
+						value="idPageFilterInds" />
+				</customData>
+			</Button>
+			<Button
+				text="Настройки"
+				press="handleNav">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+				<customData>
+					<core:CustomData
+						key="target"
+						value="idPageSetting" />
+				</customData>
+			</Button>
+			<Button
+				text="Верификация"
+				press="handleNav">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+				<customData>
+					<core:CustomData
+						key="target"
+						value="idPageVerification" />
+				</customData>
+			</Button>
+                  
+			<Button
+				text="Результат"
+				press="handleNav">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+				<customData>
+					<core:CustomData
+						key="target"
+						value="idPageChart" />
+				</customData>
+			</Button>
+                  
                 </contentRight>
                 <contentLeft>
-                  <Button icon="sap-icon://arrow-left" iconFirst="true" id="navToMainButton" press="navToMain" text="Перейти к выбору показателей" visible="false"/>
                 </contentLeft>
               </Bar>
             </customHeader>
@@ -31,55 +86,66 @@
               <NavContainer defaultTransitionName="show" height="100%" id="filterBarNavContainer">
                 <pages>
                   <!--Expanded FilterBar-->
-                  <Page height="100%" showFooter="false" showHeader="false">
+                  <Page  id="idPageFilterInds" height="100%" width="100%" showFooter="false" showHeader="false">
                     <fb:FilterBar reset="onReset" search="onSearch" showClearButton="true" showRestoreButton="true">
                       <fb:filterItems>
                         <fb:FilterItem label="Группы показателей" name="A">
                           <fb:control>
-                            <Select
-					forceSelection="false"
-					
-					items="{group>/}">
-					<core:Item key="{group>key}" text="{group>name}" />
-				</Select>
+                            <Select forceSelection="false" items="{group&gt;/}">
+                              <core:Item key="{group&gt;key}" text="{group&gt;name}"/>
+                            </Select>
                           </fb:control>
                         </fb:FilterItem>
                         <fb:FilterItem label="Государственные программы" name="B">
                           <fb:control>
-                            <Select
-					forceSelection="false"
-					
-					items="{program>/}">
-					<core:Item key="{program>key}" text="{program>name}" />
-				</Select>
+                            <Select forceSelection="false" items="{program&gt;/}">
+                              <core:Item key="{program&gt;key}" text="{program&gt;name}"/>
+                            </Select>
+                          </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem label="Источник данных" name="C">
+                          <fb:control>
+                            <Select forceSelection="false" items="{source&gt;/}">
+                              <core:Item key="{source&gt;key}" text="{source&gt;name}"/>
+                            </Select>
                           </fb:control>
                         </fb:FilterItem>
                       </fb:filterItems>
-                     </fb:FilterBar>
-                   <l:BlockLayout >
-                    
-                    
-                    	<l:BlockLayoutRow>
-				<l:BlockLayoutCell 	width="1">
-					<core:Fragment fragmentName="view.LeftTable" type="XML"/>
-
-
-				</l:BlockLayoutCell>
-				<l:BlockLayoutCell width="1">
-					
-									<core:Fragment fragmentName="view.RightTable" type="XML"/>
-					
-				</l:BlockLayoutCell>
-				</l:BlockLayoutRow>
-					</l:BlockLayout>
-			
-			
-			
+                    </fb:FilterBar>
+                    <l:BlockLayout>
+                      <l:BlockLayoutRow>
+                        <l:BlockLayoutCell width="25">
+                          <core:Fragment fragmentName="view.LeftTable" type="XML"/>
+                        </l:BlockLayoutCell>
+                        <l:BlockLayoutCell width="75">
+                          <core:Fragment fragmentName="view.RightTable" type="XML"/>
+                        </l:BlockLayoutCell>
+                      </l:BlockLayoutRow>
+                    </l:BlockLayout>
                   </Page>
-
+                  <Page  id="idPageSetting" height="100%" showFooter="false" showHeader="false">
+                    <mvc:XMLView
+                      viewName="view.setting"
+                      class="tpRootPage__topAreaView"
+             		/>
+                    
+                  </Page>
+                  <Page  id="idPageChart" height="100%" showFooter="false" showHeader="false">
+                    <mvc:XMLView
+                      viewName="view.chart"
+                      class="tpRootPage__topAreaView"
+             		/>
+                    
+                  </Page>
+                  <Page  id="idPageVerification" height="100%" showFooter="false" showHeader="false">
+                    <mvc:XMLView
+                      viewName="view.verification"
+                      class="tpRootPage__topAreaView"
+             		/>
+                    
+                  </Page>
                 </pages>
               </NavContainer>
-
             </content>
           </Page>
         </content>

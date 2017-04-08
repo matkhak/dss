@@ -19,16 +19,38 @@ sap.ui.define([
         // когда возвращаемся на первую страницу
         onRouter: function()
         {
+        	var that = this;
+        	/*
+        	$.ajaxSetup({
+        	    scriptCharset: "utf-8",
+        	    contentType: "application/json; charset=utf-8"
+        	});
         	
+        	$.getJSON("model/inds.json", function( data ) {
+            	that.getView().setModel(new JSONModel(data), "gInds");
+        	});
+        	*/
+
             this.getView().setModel(new JSONModel("model/inds.json"), "gInds");
             this.getView().setModel(new JSONModel("model/groups.json"), "group");
             this.getView().setModel(new JSONModel("model/gosProgram.json"), "program");
-
             this.getView().setModel(new JSONModel("model/selectedInds.json"), "gSelectedInds");
+            this.getView().setModel(new JSONModel("model/dataSource.json"), "source");
 
             
 
         },
+        
+        handleNav: function(evt) {
+			var navCon = this.getView().byId("filterBarNavContainer");
+			var target = evt.getSource().data("target");
+			if (target) {
+			
+				navCon.to(this.getView().byId(target), "slide");
+			} else {
+				navCon.back();
+			}
+		},
         
         /**
          * Обработка добавления показателя в выбранные

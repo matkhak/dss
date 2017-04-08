@@ -1,0 +1,1334 @@
+[
+	{
+		"ind": "SNVPN",
+		"data": [
+			{
+				"year": 2003,
+				"report": 13208.23
+			},
+			{
+				"year": 2004,
+				"report": 17927.2
+			},
+			{
+				"year": 2005,
+				"report": 21620.1
+			},
+			{
+				"year": 2006,
+				"report": 26879.8
+			},
+			{
+				"year": 2007,
+				"report": 33111.4
+			},
+			{
+				"year": 2008,
+				"report": 41444.7
+			},
+			{
+				"year": 2009,
+				"report": 38786.4
+			},
+			{
+				"year": 2010,
+				"report": 45172.7
+			},
+			{
+				"year": 2011,
+				"report": 55799.1
+			},
+			{
+				"year": 2012,
+				"report": 62599.1
+			},
+			{
+				"year": 2013,
+				"report": 66755.3
+			},
+			{
+				"year": 2014,
+				"report": 71406.4
+			}
+		]
+	},
+	{
+		"ind": "SNRFBG",
+		"data": [
+			{
+				"year": 2003,
+				"report": 2358.6
+			},
+			{
+				"year": 2004,
+				"report": 2698.9
+			},
+			{
+				"year": 2005,
+				"report": 3514.4
+			},
+			{
+				"year": 2006,
+				"report": 4284.8
+			},
+			{
+				"year": 2007,
+				"report": 5986.6
+			},
+			{
+				"year": 2008,
+				"report": 7570.9
+			},
+			{
+				"year": 2009,
+				"report": 9660.1
+			},
+			{
+				"year": 2010,
+				"report": 10117.4
+			},
+			{
+				"year": 2011,
+				"report": 10937.3
+			},
+			{
+				"year": 2012,
+				"report": 12895.6
+			},
+			{
+				"year": 2013,
+				"report": 13730.6
+			},
+			{
+				"year": 2014,
+				"report": 14496.8
+			}
+		]
+	},
+	{
+		"ind": "ASGFBS",
+		"data": [
+			{
+				"year": 2003,
+				"report": 41.58
+			},
+			{
+				"year": 2004,
+				"report": 47.48
+			},
+			{
+				"year": 2005,
+				"report": 76.91
+			},
+			{
+				"year": 2006,
+				"report": 97.36
+			},
+			{
+				"year": 2007,
+				"report": 132.7
+			},
+			{
+				"year": 2008,
+				"report": 162.12
+			},
+			{
+				"year": 2009,
+				"report": 219.05
+			},
+			{
+				"year": 2010,
+				"report": 237.64
+			},
+			{
+				"year": 2011,
+				"report": 313.9
+			},
+			{
+				"year": 2012,
+				"report": 355.92
+			},
+			{
+				"year": 2013,
+				"report": 425.3
+			},
+			{
+				"year": 2014,
+				"report": 437.27
+			}
+		]
+	},
+	{
+		"ind": "ASGFBS%F",
+		"data": [
+			{
+				"year": 2003,
+				"report": 1.763
+			},
+			{
+				"year": 2004,
+				"report": 1.76
+			},
+			{
+				"year": 2005,
+				"report": 2.19
+			},
+			{
+				"year": 2006,
+				"report": 2.27
+			},
+			{
+				"year": 2007,
+				"report": 2.22
+			},
+			{
+				"year": 2008,
+				"report": 2.14
+			},
+			{
+				"year": 2009,
+				"report": 2.27
+			},
+			{
+				"year": 2010,
+				"report": 2.35
+			},
+			{
+				"year": 2011,
+				"report": 2.87
+			},
+			{
+				"year": 2012,
+				"report": 2.76
+			},
+			{
+				"year": 2013,
+				"report": 3.1
+			},
+			{
+				"year": 2014,
+				"report": 2.95
+			}
+		]
+	},
+	{
+		"ind": "ASGFBS%V",
+		"data": [
+			{
+				"year": 2003,
+				"report": 0.315
+			},
+			{
+				"year": 2004,
+				"report": 0.28
+			},
+			{
+				"year": 2005,
+				"report": 0.356
+			},
+			{
+				"year": 2006,
+				"report": 0.362
+			},
+			{
+				"year": 2007,
+				"report": 0.401
+			},
+			{
+				"year": 2008,
+				"report": 0.391
+			},
+			{
+				"year": 2009,
+				"report": 0.565
+			},
+			{
+				"year": 2010,
+				"report": 0.526
+			},
+			{
+				"year": 2011,
+				"report": 0.563
+			},
+			{
+				"year": 2012,
+				"report": 0.569
+			},
+			{
+				"year": 2013,
+				"report": 0.637
+			},
+			{
+				"year": 2014,
+				"report": 0.612
+			}
+		]
+	},
+	{
+		"ind": "ASGFBFUN",
+		"data": [
+			{
+				"year": 2003,
+				"report": 21.1
+			},
+			{
+				"year": 2004,
+				"report": 24.8
+			},
+			{
+				"year": 2005,
+				"report": 32.025
+			},
+			{
+				"year": 2006,
+				"report": 42.773
+			},
+			{
+				"year": 2007,
+				"report": 54.769
+			},
+			{
+				"year": 2008,
+				"report": 69.736
+			},
+			{
+				"year": 2009,
+				"report": 83.198
+			},
+			{
+				"year": 2010,
+				"report": 82.172
+			},
+			{
+				"year": 2011,
+				"report": 91.685
+			},
+			{
+				"year": 2012,
+				"report": 86.623
+			},
+			{
+				"year": 2013,
+				"report": ""
+			},
+			{
+				"year": 2014,
+				"report": 121.599
+			}
+		]
+	},
+	{
+		"ind": "ASGFBFU%F",
+		"data": [
+			{
+				"year": 2003,
+				"report": 0.895
+			},
+			{
+				"year": 2004,
+				"report": 0.919
+			},
+			{
+				"year": 2005,
+				"report": 0.911
+			},
+			{
+				"year": 2006,
+				"report": 0.998
+			},
+			{
+				"year": 2007,
+				"report": 0.915
+			},
+			{
+				"year": 2008,
+				"report": 0.921
+			},
+			{
+				"year": 2009,
+				"report": 0.861
+			},
+			{
+				"year": 2010,
+				"report": 0.812
+			},
+			{
+				"year": 2011,
+				"report": 0.839
+			},
+			{
+				"year": 2012,
+				"report": 0.672
+			},
+			{
+				"year": 2013,
+				"report": ""
+			},
+			{
+				"year": 2014,
+				"report": 0.839
+			}
+		]
+	},
+	{
+		"ind": "ASGFBFU%V",
+		"data": [
+			{
+				"year": 2003,
+				"report": 0.16
+			},
+			{
+				"year": 2004,
+				"report": 0.146
+			},
+			{
+				"year": 2005,
+				"report": 0.148
+			},
+			{
+				"year": 2006,
+				"report": 0.159
+			},
+			{
+				"year": 2007,
+				"report": 0.165
+			},
+			{
+				"year": 2008,
+				"report": 0.168
+			},
+			{
+				"year": 2009,
+				"report": 0.215
+			},
+			{
+				"year": 2010,
+				"report": 0.182
+			},
+			{
+				"year": 2011,
+				"report": 0.164
+			},
+			{
+				"year": 2012,
+				"report": 0.138
+			},
+			{
+				"year": 2013,
+				"report": ""
+			},
+			{
+				"year": 2014,
+				"report": 0.17
+			}
+		]
+	},
+	{
+		"ind": "ASGFBPR",
+		"data": [
+			{
+				"year": 2003,
+				"report": 20.5
+			},
+			{
+				"year": 2004,
+				"report": 22.6
+			},
+			{
+				"year": 2005,
+				"report": 44.884
+			},
+			{
+				"year": 2006,
+				"report": 54.59
+			},
+			{
+				"year": 2007,
+				"report": 77.934
+			},
+			{
+				"year": 2008,
+				"report": 92.38
+			},
+			{
+				"year": 2009,
+				"report": 135.855
+			},
+			{
+				"year": 2010,
+				"report": 155.472
+			},
+			{
+				"year": 2011,
+				"report": 222.215
+			},
+			{
+				"year": 2012,
+				"report": 269.297
+			},
+			{
+				"year": 2013,
+				"report": ""
+			},
+			{
+				"year": 2014,
+				"report": 315.673
+			}
+		]
+	},
+	{
+		"ind": "ASGFBPR%F",
+		"data": [
+			{
+				"year": 2003,
+				"report": 0.869
+			},
+			{
+				"year": 2004,
+				"report": 0.837
+			},
+			{
+				"year": 2005,
+				"report": 1.277
+			},
+			{
+				"year": 2006,
+				"report": 1.274
+			},
+			{
+				"year": 2007,
+				"report": 1.302
+			},
+			{
+				"year": 2008,
+				"report": 1.22
+			},
+			{
+				"year": 2009,
+				"report": 1.406
+			},
+			{
+				"year": 2010,
+				"report": 1.537
+			},
+			{
+				"year": 2011,
+				"report": 2.034
+			},
+			{
+				"year": 2012,
+				"report": 2.089
+			},
+			{
+				"year": 2013,
+				"report": ""
+			},
+			{
+				"year": 2014,
+				"report": 2.178
+			}
+		]
+	},
+	{
+		"ind": "ASGFBPR%V",
+		"data": [
+			{
+				"year": 2003,
+				"report": 0.155
+			},
+			{
+				"year": 2004,
+				"report": 0.133
+			},
+			{
+				"year": 2005,
+				"report": 0.208
+			},
+			{
+				"year": 2006,
+				"report": 0.203
+			},
+			{
+				"year": 2007,
+				"report": 0.235
+			},
+			{
+				"year": 2008,
+				"report": 0.223
+			},
+			{
+				"year": 2009,
+				"report": 0.35
+			},
+			{
+				"year": 2010,
+				"report": 0.344
+			},
+			{
+				"year": 2011,
+				"report": 0.398
+			},
+			{
+				"year": 2012,
+				"report": 0.43
+			},
+			{
+				"year": 2013,
+				"report": ""
+			},
+			{
+				"year": 2014,
+				"report": 0.442
+			}
+		]
+	},
+	{
+		"ind": "SNF1",
+		"data": [
+			{
+				"year": 2003,
+				"report": 1.763
+			},
+			{
+				"year": 2004,
+				"report": 1.76
+			},
+			{
+				"year": 2005,
+				"report": 2.19
+			},
+			{
+				"year": 2006,
+				"report": 2.27
+			},
+			{
+				"year": 2007,
+				"report": 2.22
+			},
+			{
+				"year": 2008,
+				"report": 2.14
+			},
+			{
+				"year": 2009,
+				"report": 2.27
+			},
+			{
+				"year": 2010,
+				"report": 2.35
+			},
+			{
+				"year": 2011,
+				"report": 2.87
+			},
+			{
+				"year": 2012,
+				"report": 2.76
+			},
+			{
+				"year": 2013,
+				"report": 3.1
+			},
+			{
+				"year": 2014,
+				"report": 2.95
+			}
+		]
+	},
+	{
+		"ind": "SNE",
+		"data": [
+			{
+				"year": 2003,
+				"report": 3797
+			},
+			{
+				"year": 2004,
+				"report": 3656
+			},
+			{
+				"year": 2005,
+				"report": 3566
+			},
+			{
+				"year": 2006,
+				"report": 3622
+			},
+			{
+				"year": 2007,
+				"report": 3657
+			},
+			{
+				"year": 2008,
+				"report": 3666
+			},
+			{
+				"year": 2009,
+				"report": 3536
+			},
+			{
+				"year": 2010,
+				"report": 3492
+			},
+			{
+				"year": 2011,
+				"report": 3682
+			},
+			{
+				"year": 2012,
+				"report": 3646
+			},
+			{
+				"year": 2013,
+				"report": 3605
+			},
+			{
+				"year": 2014,
+				"report": 3604
+			}
+		]
+	},
+	{
+		"ind": "SNEG",
+		"data": [
+			{
+				"year": 2003,
+				"report": 1233
+			},
+			{
+				"year": 2004,
+				"report": 1230
+			},
+			{
+				"year": 2005,
+				"report": 1282
+			},
+			{
+				"year": 2006
+			},
+			{
+				"year": 2005,
+				"report": 13409.68
+			},
+			{
+				"year": 2006,
+				"report": 17540.73
+			},
+			{
+				"year": 2007,
+				"report": 14563.55
+			},
+			{
+				"year": 2008,
+				"report": 19920.99
+			},
+			{
+				"year": 2009,
+				"report": 25900.86
+			},
+			{
+				"year": 2010,
+				"report": 25755.36
+			},
+			{
+				"year": 2011,
+				"report": 25630.51
+			},
+			{
+				"year": 2012,
+				"report": 31425.9
+			},
+			{
+				"year": 2013,
+				"report": 38256
+			},
+			{
+				"year": 2014,
+				"report": 57204.6
+			}
+		]
+	},
+	{
+		"ind": "SNINZTCTIT",
+		"data": [
+			{
+				"year": 2003,
+				"report": 201.25
+			},
+			{
+				"year": 2004,
+				"report": 211.25
+			},
+			{
+				"year": 2005,
+				"report": 231.25
+			},
+			{
+				"year": 2006,
+				"report": 207.54
+			},
+			{
+				"year": 2007,
+				"report": 966.49
+			},
+			{
+				"year": 2008,
+				"report": 1079.65
+			},
+			{
+				"year": 2009,
+				"report": 1155.97
+			},
+			{
+				"year": 2010,
+				"report": 225.65
+			},
+			{
+				"year": 2011,
+				"report": 338.45
+			},
+			{
+				"year": 2012,
+				"report": 396.95
+			},
+			{
+				"year": 2013,
+				"report": 527.47
+			},
+			{
+				"year": 2014,
+				"report": 597.47
+			}
+		]
+	},
+	{
+		"ind": "SNINVOP",
+		"data": [
+			{
+				"year": 2003,
+				"report": 315603.53
+			},
+			{
+				"year": 2004,
+				"report": 435122.21
+			},
+			{
+				"year": 2005,
+				"report": 545540.02
+			},
+			{
+				"year": 2006,
+				"report": 714024.57
+			},
+			{
+				"year": 2007,
+				"report": 916131.56
+			},
+			{
+				"year": 2008,
+				"report": 1046960.02
+			},
+			{
+				"year": 2009,
+				"report": 877684.77
+			},
+			{
+				"year": 2010,
+				"report": 1165747.6
+			},
+			{
+				"year": 2011,
+				"report": 1847370.4
+			},
+			{
+				"year": 2012,
+				"report": 2014800
+			},
+			{
+				"year": 2013,
+				"report": 2201900
+			},
+			{
+				"year": 2014,
+				"report": 841.9
+			}
+		]
+	},
+	{
+		"ind": "SNINOILGZ",
+		"data": [
+			{
+				"year": 2003,
+				"report": 61000.67
+			},
+			{
+				"year": 2004,
+				"report": 82155.63
+			},
+			{
+				"year": 2005,
+				"report": 75280.53
+			},
+			{
+				"year": 2006,
+				"report": 84123.22
+			},
+			{
+				"year": 2007,
+				"report": 102645.21
+			},
+			{
+				"year": 2008,
+				"report": 109605.59
+			},
+			{
+				"year": 2009,
+				"report": 111572.79
+			},
+			{
+				"year": 2010,
+				"report": 143020.22
+			},
+			{
+				"year": 2011,
+				"report": 490391.22
+			},
+			{
+				"year": 2012,
+				"report": 491704.49
+			},
+			{
+				"year": 2013,
+				"report": 395551.94
+			},
+			{
+				"year": 2014,
+				"report": 602346.3
+			}
+		]
+	},
+	{
+		"ind": "SNINCVJZ",
+		"data": [
+			{
+				"year": 2003,
+				"report": ""
+			},
+			{
+				"year": 2004,
+				"report": ""
+			},
+			{
+				"year": 2005,
+				"report": ""
+			},
+			{
+				"year": 2006,
+				"report": 45409.88
+			},
+			{
+				"year": 2007,
+				"report": 24597.97
+			},
+			{
+				"year": 2008,
+				"report": 33683.98
+			},
+			{
+				"year": 2009,
+				"report": 27276.72
+			},
+			{
+				"year": 2010,
+				"report": 42849.55
+			},
+			{
+				"year": 2011,
+				"report": 49486.61
+			},
+			{
+				"year": 2012,
+				"report": 41444.09
+			},
+			{
+				"year": 2013,
+				"report": ""
+			},
+			{
+				"year": 2014,
+				"report": ""
+			}
+		]
+	},
+	{
+		"ind": "SNINZIR",
+		"data": [
+			{
+				"year": 2003,
+				"report": ""
+			},
+			{
+				"year": 2004,
+				"report": 23553.41
+			},
+			{
+				"year": 2005,
+				"report": 20799.03
+			},
+			{
+				"year": 2006,
+				"report": 37691.81
+			},
+			{
+				"year": 2007,
+				"report": 38607.14
+			},
+			{
+				"year": 2008,
+				"report": 43230.98
+			},
+			{
+				"year": 2009,
+				"report": 99543.21
+			},
+			{
+				"year": 2010,
+				"report": 83318.59
+			},
+			{
+				"year": 2011,
+				"report": 172862.94
+			},
+			{
+				"year": 2012,
+				"report": 324654.65
+			},
+			{
+				"year": 2013,
+				"report": 410783.2
+			},
+			{
+				"year": 2014,
+				"report": 527478.8
+			}
+		]
+	},
+	{
+		"ind": "SNINZIRP",
+		"data": [
+			{
+				"year": 2003,
+				"report": ""
+			},
+			{
+				"year": 2004,
+				"report": 20135
+			},
+			{
+				"year": 2005,
+				"report": 19700.01
+			},
+			{
+				"year": 2006,
+				"report": 35014.7
+			},
+			{
+				"year": 2007,
+				"report": 35917.31
+			},
+			{
+				"year": 2008,
+				"report": 41485.68
+			},
+			{
+				"year": 2009,
+				"report": 97866.27
+			},
+			{
+				"year": 2010,
+				"report": 72040.87
+			},
+			{
+				"year": 2011,
+				"report": 69830.97
+			},
+			{
+				"year": 2012,
+				"report": 118810.5
+			},
+			{
+				"year": 2013,
+				"report": 152355.9
+			},
+			{
+				"year": 2014,
+				"report": 190863
+			}
+		]
+	},
+	{
+		"ind": "SNINZCVZ",
+		"data": [
+			{
+				"year": 2003,
+				"report": ""
+			},
+			{
+				"year": 2004,
+				"report": 287.8
+			},
+			{
+				"year": 2005,
+				"report": 736.27
+			},
+			{
+				"year": 2006,
+				"report": 870.22
+			},
+			{
+				"year": 2007,
+				"report": 1245.07
+			},
+			{
+				"year": 2008,
+				"report": 205.27
+			},
+			{
+				"year": 2009,
+				"report": 176.17
+			},
+			{
+				"year": 2010,
+				"report": 218.87
+			},
+			{
+				"year": 2011,
+				"report": 3741.3
+			},
+			{
+				"year": 2012,
+				"report": 15990.6
+			},
+			{
+				"year": 2013,
+				"report": 818.1
+			},
+			{
+				"year": 2014,
+				"report": ""
+			}
+		]
+	},
+	{
+		"ind": "SNINZCTIT",
+		"data": [
+			{
+				"year": 2003,
+				"report": ""
+			},
+			{
+				"year": 2004,
+				"report": 297.8
+			},
+			{
+				"year": 2005,
+				"report": 362.75
+			},
+			{
+				"year": 2006,
+				"report": 578.16
+			},
+			{
+				"year": 2007,
+				"report": 1425.54
+			},
+			{
+				"year": 2008,
+				"report": 1147.47
+			},
+			{
+				"year": 2009,
+				"report": 1118.38
+			},
+			{
+				"year": 2010,
+				"report": 2471.22
+			},
+			{
+				"year": 2011,
+				"report": 3079.17
+			},
+			{
+				"year": 2012,
+				"report": 3516.48
+			},
+			{
+				"year": 2013,
+				"report": 14506.4
+			},
+			{
+				"year": 2014,
+				"report": ""
+			}
+		]
+	},
+	{
+		"ind": "SNINALL",
+		"data": [
+			{
+				"year": 2003,
+				"report": 9.3
+			},
+			{
+				"year": 2004,
+				"report": 9.4
+			},
+			{
+				"year": 2005,
+				"report": 9.3
+			},
+			{
+				"year": 2006,
+				"report": 9.4
+			},
+			{
+				"year": 2007,
+				"report": 9.4
+			},
+			{
+				"year": 2008,
+				"report": 9.6
+			},
+			{
+				"year": 2009,
+				"report": 9.4
+			},
+			{
+				"year": 2010,
+				"report": 9.3
+			},
+			{
+				"year": 2011,
+				"report": 9.6
+			},
+			{
+				"year": 2012,
+				"report": 9.9
+			},
+			{
+				"year": 2013,
+				"report": 9.7
+			},
+			{
+				"year": 2014,
+				"report": 9.7
+			}
+		]
+	},
+	{
+		"ind": "SNINVWUS",
+		"data": [
+			{
+				"year": 2003,
+				"report": ""
+			},
+			{
+				"year": 2004,
+				"report": 433003.5
+			},
+			{
+				"year": 2005,
+				"report": 545540
+			},
+			{
+				"year": 2006,
+				"report": 674760.9
+			},
+			{
+				"year": 2007,
+				"report": 841987.2
+			},
+			{
+				"year": 2008,
+				"report": 941624.8
+			},
+			{
+				"year": 2009,
+				"report": 807561.7
+			},
+			{
+				"year": 2010,
+				"report": 984364.5
+			},
+			{
+				"year": 2011,
+				"report": 1700448.7
+			},
+			{
+				"year": 2012,
+				"report": 2253141.4
+			},
+			{
+				"year": 2013,
+				"report": 2825259.3
+			},
+			{
+				"year": 2014,
+				"report": 2744454.7
+			}
+		]
+	},
+	{
+		"ind": "SNINZCVTIT",
+		"data": [
+			{
+				"year": 2003,
+				"report": ""
+			},
+			{
+				"year": 2004,
+				"report": 1950.08
+			},
+			{
+				"year": 2005,
+				"report": 2750.08
+			},
+			{
+				"year": 2006,
+				"report": 3387.91
+			},
+			{
+				"year": 2007,
+				"report": 4046.36
+			},
+			{
+				"year": 2008,
+				"report": 3371.36
+			},
+			{
+				"year": 2009,
+				"report": 7745.39
+			},
+			{
+				"year": 2010,
+				"report": 7967.76
+			},
+			{
+				"year": 2011,
+				"report": 20491.33
+			},
+			{
+				"year": 2012,
+				"report": 16942.5
+			},
+			{
+				"year": 2013,
+				"report": 13492.38
+			},
+			{
+				"year": 2014,
+				"report": 31324.2
+			}
+		]
+	}
+]

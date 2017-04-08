@@ -1,0 +1,40 @@
+<mvc:View 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" 
+	xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc" 
+    height="100%">
+
+            <Panel  class="panelStyle sapUiResponsiveMargin sapUiMediumMarginBeginEnd" expandable="true" 
+            	expanded="true" headerText="Настройка параметров верификации" width="auto">
+                <content>
+                 	<f:SimpleForm columnsL="2" 
+                 	columnsM="2" emptySpanL="0" emptySpanM="0" labelSpanL="3" labelSpanM="3"
+                 	layout="ResponsiveGridLayout" maxContainerCols="2">
+                	<f:content>
+                	                 <core:Title text="Критерии качества регресионных моделей"/>
+                	
+                    				 <Label required="true" text="F-stat" textAlign="End"/>
+                                     <Input enabled="false" value=">= F-табличное"  />
+                  					 
+                  					 <Label required="true" text="DW" textAlign="End"/>
+                                     <Input enabled="false"  value = "0.6;3.4"  />
+                  
+                  					 <Label required="true" text="R2" textAlign="End"/>
+                                     <Input value="0.6"  />
+                  
+                  
+                               <core:Title text="Критерий точности"/>
+                  
+                    			<Label required="true" text="Максимальное значение ошибки" textAlign="End"/>
+                               <Input/>
+           
+                               
+           
+                </f:content>
+            </f:SimpleForm>
+                </content>
+            </Panel>
+        
+</mvc:View>

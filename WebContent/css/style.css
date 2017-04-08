@@ -45,3 +45,10 @@ table tr.sapMListTblRow.sapMListTblHeader > th:nth-last-child(n+2):not(:nth-last
 /* line 23, ../stylesheets/pagemain.sass */
 .gIndsScrollContainer .sapMSLIDescription, .mainpage__choosedlist .sapMSLIDescription {
   width: 6rem; }
+  
+  
+  
+  #content {
+    overflow-y: hidden;
+}
+  

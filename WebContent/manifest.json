@@ -14,11 +14,19 @@
                 "pattern": "",
                 "name": "init",
                 "target": "init"
+            },{
+                "pattern": "chart",
+                "name": "chart",
+                "target": "chart"
             }],
 
             "targets": {
                 "init": {
                     "viewName": "init",
+                    "viewType": "XML"
+                },
+               "chart": {
+                    "viewName": "chart",
                     "viewType": "XML"
                 }
             }

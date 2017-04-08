@@ -5,6 +5,7 @@
 >
   <l:VerticalLayout
       class="mainpage__indlist"
+     
   >
     <Toolbar
         design="Transparent"
@@ -25,6 +26,8 @@
         horizontal="false"
         vertical="true"
     >
+    
+    	
       <List
           id="allIndsList"
           noDataText="Нет показателей"
@@ -33,9 +36,8 @@
           includeItemInSelection="true"
           selectionChange="handleIndSelection"
           rememberSelections="false"
-
           growing="true"
-          growingThreshold="50"
+          growingThreshold="30"
           growingScrollToLoad="true"
       >
         <StandardListItem
