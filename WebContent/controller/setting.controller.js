@@ -15,10 +15,7 @@ sap.ui.define([
             this.getView().setModel(new JSONModel("model/equals.json"), "equals");
             
             
-            this.getView().setModel(new JSONModel({
-            	forecastRange: 1  
-            	
-            }), "settings");
+            
             
       
         },

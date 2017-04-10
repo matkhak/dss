@@ -65,10 +65,67 @@ sap.ui.define([
  
         onInit : function (evt) {
         	
+        	/*
+            
+            debugger
+            // отчетные данные
         	
-        	// загрузка данных показателей
-            this.getView().setModel(new JSONModel("model/dataChart.json"), "data");
+        	
+        	var ind;
+        	
+        	for (var i = 0; i < data.length; i++) {
+				if (data[i].ind === code) {
+					ind = data[i];
+					break;
+				}
+			}
+        	
+        	
+        
+        	
+        	// расчетные данные
+            
+        	for (var i = 0; i < ind.data.length; i++) {
+				if (ind.data[i].report) {
+					
+					let min = ind.data[i].report-ind.data[i].report*0.1;
+					let max = ind.data[i].report+ind.data[i].report*0.1
+				
+					ind.data[i].calc = this.getRandomInt(min,max)
+				}
+					
+        	} 
+        	//  берем последний год, увеличиваем на 1
+        	for (var i = 0; i < forecastRange; i++) {
+        		
+        		let min = ind.data[ind.data.length-1].calc-ind.data[ind.data.length-1].calc*0.1;
+				let max = ind.data[ind.data.length-1].calc+ind.data[ind.data.length-1].calc*0.1
+				var calc = this.getRandomInt(min,max)
+        		
+        		ind.data.push({
+        			year: ind.data[ind.data.length-1].year+1,
+        			calc: calc
+        			
+        		})
+					
+        	}
+        	
+        	// плановые данные
+        	var selInd = this.getView().getModel("gSelectedInds").getData();        	
+        	
+        	for (var i = 0; i < ind.data.length; i++) {
+        		
+        		for (var j = 0; j < selInd.length; j++) {
+            		
+        			if (ind.data[i].year == selInd[j][ind.data[i].year]) {
+        				ind.data[i].repo
+        			}
 
+				}
+        		
+        	}
+        	
+        	*/
         	
         	
             this.initCustomFormat();
@@ -104,63 +161,7 @@ sap.ui.define([
                 }
             });
             
-          /*  var data =  {
-            		milk: [{
-            			year: "2001",
-            			
-            			report: 205199.37,
-            			target: 500000,
-            			calc: 210000
-            			},
-            			{
-            			year: "2002",
-            			
-            			report: 138799.61,
-            			target: 500000,
-            			calc: 224000
-            			},
-            			{
-            			year: "2003",
-            			
-            			report: 150799.46,
-            			target: 500000,
-            			calc: 238000
-            			},
-            			{
-            			year: "2004",
-            			
-            			report: 121199.27,
-            			target: 500000,
-            			calc: 252000
-            			},
-            			{
-            			year: "2005",
-            			
-            			report: 89999.09,
-            			//target: 600000,
-            			calc: 266000
-            			},
-            			{
-            			year: "2006",
-            			
-            			report: 77199.85,
-            			//target: 600000,
-            			calc: 280000
-            			},
-            			{
-            			year: "2007",
-            			
-            			report: 87799.26,
-            			//target: 600000,
-            			calc: 294000
-            			}
-            			
-            			
-            			]
-            			}
-            var dataModel = new JSONModel(data);
-            oVizFrame.setModel(dataModel);
-            */
+      
          
             var oPopOver = this.getView().byId("idPopOver");
             oPopOver.connect(oVizFrame.getVizUid());
@@ -244,9 +245,11 @@ sap.ui.define([
         // выбор показателей в мастере
         onSelectInd: function(oEvent){
         	var oSelectedItem = oEvent.getParameter("listItem");
-           var oContext = oSelectedItem.getBindingContext("gSelectedInds");
-            var model = this.getView().getModel("gSelectedInds").getProperty(oContext.getPath());
-            this.setIndData(model.INDCD);
+            var oContext = oSelectedItem.getBindingContext("gSelectedInds");
+            var model = this.getView().getModel("chartData").getProperty(oContext.getPath());
+            
+            
+            this.setIndData(model);
             
 /*
             sap.ui.core.UIComponent.getRouterFor(this).navTo("card", {
@@ -255,68 +258,58 @@ sap.ui.define([
             });*/
         },
         
-        setIndData: function(code){
+        setIndData: function(ind){
         	
+        	var result = {};
+
         	
-        	// отчетные данные
+        	// расчет отклонения. берется сумма и делится на среднее
         	
-        	var data = this.getView().getModel("data").getData();
-        	var ind;
-        	
-        	for (var i = 0; i < data.length; i++) {
-				if (data[i].ind === code) {
-					ind = data[i];
-					break;
-				}
-			}
-        	
-        	// расчетные данные
-        	
+        	var sumDiff = [];
         	
         	for (var i = 0; i < ind.data.length; i++) {
-				if (ind.data[i].report) {
-					
-					let min = ind.data[i].report-ind.data[i].report*0.1;
-					let max = ind.data[i].report+ind.data[i].report*0.1
 				
-					ind.data[i].calc = this.getRandomInt(min,max)
-				}
-					
-        	} 
+        		if (ind.data[i].target) {
+        			
+        			sumDiff.push((Math.abs(ind.data[i].calc-ind.data[i].target)/ind.data[i].calc));
+
+        		}
+			}
         	
-        	
-        	var aa = this.getView().byId("idSelectForecastRange");
-        	/*
-        	
-        	
+        	result.diffPlan = sumDiff.reduce(function(a, b) { return a + b; }, 0)/(sumDiff.length-1)
         	
         	// характеристика качества модели
         	var quality = {
         		Fstat : 'Значимо',
-        		DW : getRandomArbitary(1,4),
-        		R2 : getRandomArbitary(50,100)/100,
-        		SE : getRandomArbitary(10,100),
-        		AIC: getRandomArbitary(10,100)*-1,
-        		BIC: getRandomArbitary(10,100)*-1,
+        		DW : this.getRandomArbitary(1,4),
+        		R2 : this.getRandomArbitary(50,100)/100,
+        		SE : this.getRandomArbitary(10,100),
+        		AIC: this.getRandomArbitary(10,100)*-1,
+        		BIC: this.getRandomArbitary(10,100)*-1,
         		
         		
         	}
         	
         	
-        	quality.R2A = quality.R2 - getRandomArbitary(2,10)/100
+        	quality.R2A = (quality.R2 - this.getRandomArbitary(2,10)/100).toFixed(3);
+        	
+        	result.quality = quality;
+        	
         	// характеристика точности модели
         	
         	var errors = {
-        		econ: getRandomInt(1,17),
-        		ann: getRandomInt(1,20),
-        		rf: getRandomInt(1,20),
-        		ar: getRandomInt(1,20)      		
+        		econ: this.getRandomInt(1,17),
+        		ann: this.getRandomInt(1,20),
+        		rf: this.getRandomInt(1,20),
+        		ar: this.getRandomInt(1,20)      		
         	}
-        	errors.combined =  Math.floor((errors.ann + errors.rf + errors.ar)/3)
+        	errors.combined =  Math.floor((errors.ann + errors.rf + errors.ar)/3);
+        	
+        	result.errors = errors;
+
         	
         	// результаты моделирования
-        	var result = {}, 
-        	varType = [' Построена модель с помощью эконометрического метода.', 'Построена модель с интеллектуального метода.'],
+        	var varType = [' Построена модель с помощью эконометрического метода.', 'Построена модель с помощью интеллектуального метода.'],
         	varVerif = [' Модель прошла проверку ретроверификации', 'Модель не прошла проверку ретроверификации'];
         	
         	//как построена модель
@@ -331,13 +324,21 @@ sap.ui.define([
         	
             // итоговый текст	
             result.text = 	 result.type +  result.verif;
-            	*/
-        	
+            
+            // дата биндинг 
+            this.getView().setModel(new JSONModel(result), "result");
+        
+           
             var oVizFrame = this.oVizFrame = this.getView().byId("idVizFrame");
 
         	 var dataModel = new JSONModel(ind);
              oVizFrame.setModel(dataModel);
-            	
+             
+             
+             
+          
+             
+             
             	
          },
          getRandomInt: function(min, max){ 

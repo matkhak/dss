@@ -1,4 +1,11 @@
-<mvc:View controllerName="controller.chart" height="100%" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+<mvc:View controllerName="controller.chart" height="100%"
+  xmlns="sap.m" xmlns:core="sap.ui.core"
+   xmlns:f="sap.ui.layout.form" 
+   xmlns:layout="sap.ui.layout" 
+   xmlns:mvc="sap.ui.core.mvc"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:viz.data="sap.viz.ui5.data" 
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
   <SplitContainer>
     <masterPages>
       <Page class="sapUiStdPage" icon="sap-icon://action" title="Показатели для анализа">
@@ -17,8 +24,7 @@
         <content>
         <Panel width="auto">
 		<content>
-			<Text text="Построена модель с помощью регресионного уравнения. Показатель прошел проверку ретроверификации. Рекомендуется ее использовать для дальнейшего анализа. 
-			Отклонения от планового значения составляют" />
+			<Text text="{result>/text}" />
 		</content>
 	</Panel>
           <Panel   expandable="true" expanded="true"
@@ -31,37 +37,108 @@
               labelSpanM="4" layout="ResponsiveGridLayout" maxContainerCols="2">
                 <f:content>
                   <core:Title text="Критерии качества регресионного уравнения"/>
-                  <Label text="Коеффициенты" textAlign="End"/>
-                  <Text text="0.6"/>
+             
                   <Label text="F-stat" textAlign="End"/>
-                  <Text/>
+                  <Text text="{result>/quality/Fstat}"/>
                   <Label text="DW" textAlign="End"/>
-                  <Text/>
+                  <Text text="{result>/quality/DW}"/>
                   <Label text="R2" textAlign="End"/>
-                  <Text text="0.6"/>
+                  <Text text="{result>/quality/R2}"/>
                   <Label text="R2A" textAlign="End"/>
-                  <Text text="0.6"/>
+                  <Text  text="{result>/quality/R2A}"/>
                   <Label text="SE" textAlign="End"/>
-                  <Text value="0.6"/>
+                  <Text  text="{result>/quality/SE}"/>
                   <Label text="AIC" textAlign="End"/>
-                  <Text text="0.6"/>
+                  <Text  text="{result>/quality/AIC}"/>
+                  
+                  <Label text="BIC" textAlign="End"/>
+                  <Text  text="{result>/quality/BIC}"/>
+                  
+                 
+     <!--        
+     		 <Label text="Коеффициенты" textAlign="End"/>
+     		<table:Table 
+            	class="sapUiSmallMargin" 
+            	
+            	navigationMode="Paginator" 
+            	rows="{scenario&gt;/}" 
+            	selectionMode="Single" 
+            	showNoData="false" 
+            	visibleRowCount="7">
+                <table:columns>
+                    <table:Column  >
+                        <Text text="Параметры"/>
+                        <table:template>
+                            <Text text="{scenario&gt;FNAME}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column  >
+                        <Text text="a0"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2016}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Text text="a1"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2017}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Text text="a2"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2018}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Text text="a3"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2019}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Text text="a4"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2020}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Text text="a5"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2020}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Text text="a6"/>
+                        <table:template>
+                            <Input value="{scenario&gt;2020}"/>
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+                  
+                  -->
+                  
+                  
+                  
+                  
+                  
                   <core:Title text="Критерий точности, %"/>
                   <Label text="Эконометрика" textAlign="End"/>
-                  <Text/>
+                  <Text  text="{result>/errors/econ}"/>
                   <Label text="Комбинированная модель" textAlign="End"/>
-                  <Text/>
+                   <Text  text="{result>/errors/combined}"/>
                   <Label text="Нейронная сеть" textAlign="End"/>
-                  <Text/>
+                   <Text  text="{result>/errors/ann}"/>
                   <Label text="Случайный лес" textAlign="End"/>
-                  <Text/>
+                   <Text  text="{result>/errors/rf}"/>
                   <Label text="Авторегрессия" textAlign="End"/>
-                  <Text/>
+                   <Text  text="{result>/errors/ar}"/>
                   
                   <core:Title text="Отклонения от плана, %"/>
-                  <Label text="Отчетные данные" textAlign="End"/>
-                  <Text/>
-                  <Label text="Прогнозные данные" textAlign="End"/>
-                  <Text/>
+                  <Label text="От расчетных данных" textAlign="End"/>
+                  <Text  text="{result>/diffPlan}"/>
+             
                  
                   <Text/>
                 </f:content>

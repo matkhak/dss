@@ -26,8 +26,11 @@ sap.ui.define([
             this.getView().setModel(new JSONModel("model/gosProgram.json"), "program");
             this.getView().setModel(new JSONModel("model/selectedInds.json"), "gSelectedInds");
             this.getView().setModel(new JSONModel("model/dataSource.json"), "source");
+            this.getView().setModel(new JSONModel({
+            	forecastRange: 1  
+            }), "settings");
 
-            
+            this.getView().setModel(new JSONModel("model/dataChart.json"), "data");
 
         },
         
@@ -35,13 +38,95 @@ sap.ui.define([
 			var navCon = this.getView().byId("filterBarNavContainer");
 			var target = evt.getSource().data("target");
 			if (target) {
+				
+				if (target === "idPageChart") {
+					
+					this.loadChartData();
+				}
 			
 				navCon.to(this.getView().byId(target), "slide");
 			} else {
 				navCon.back();
 			}
 		},
-        
+		loadChartData: function(evt) {
+			var that = this;
+			
+			// прогнозирование
+            var forecastRange = parseInt(this.getView().getModel("settings").getData().forecastRange);	
+
+        	// загрузка данных всех показателей
+            var allInds =  this.getView().getModel("data").getData();
+            
+            // получаем список выбранных показателей
+            var selInds =this.getView().getModel("gSelectedInds").getData();
+            
+            var newlist = allInds.filter(function(a) {
+            	  return selInds.filter(function(o) {
+            	    return o.INDCD == a.ind
+            	  }).length !== 0
+            	})
+            	
+            // расчетные данные
+            
+           newlist.forEach(function(ind) {
+        	 
+        	   for (var i = 0; i < ind.data.length; i++) {
+   				if (ind.data[i].report) {
+   					
+   					let min = ind.data[i].report-ind.data[i].report*0.1;
+   					let max = ind.data[i].report+ind.data[i].report*0.1
+   				
+   					ind.data[i].calc = that.getRandomInt(min,max)
+   				}
+   					
+           	};
+          	   
+        	//  берем последний год, увеличиваем на 1
+              	for (var i = 0; i < forecastRange; i++) {
+              		
+              		let min = ind.data[ind.data.length-1].calc-ind.data[ind.data.length-1].calc*0.1;
+      				let max = ind.data[ind.data.length-1].calc+ind.data[ind.data.length-1].calc*0.1
+      				var calc = that.getRandomInt(min,max)
+              		
+              		ind.data.push({
+              			year: ind.data[ind.data.length-1].year+1,
+              			calc: calc
+              			
+              		})
+      					
+              	}; 
+              	
+              	
+            //  плановые значения
+              	for (var i = 0; i < selInds.length; i++) {
+              		
+              		for (var key in selInds[i]) {
+              			
+              			for (var j = 0; j < newlist[i].data.length; j++) {
+              				
+              				if (newlist[i].data[j]) {
+              				
+              				if (parseInt(key) == newlist[i].data[j].year) {
+              					newlist[i].data[j].target = parseInt(selInds[i][key]);
+              				}
+              				}
+              			}
+              			
+              		} 
+              		
+              	};
+        	   
+           });	
+            	
+         // вносим плановые данные
+            
+            
+            this.getView().setModel(new JSONModel(newlist), "chartData");
+
+			
+			
+		},
         handleIndSelection: function (oEvent) {
 
           var oGSelectedIndsModel = this.getView().getModel('gSelectedInds');
@@ -146,7 +231,11 @@ sap.ui.define([
          this.byId('selectedCountLabel').setText('Список показателей ('+oBinding.getLength()+')');
        },
 
+       getRandomInt: function(min, max){ 
 
+           return Math.floor(Math.random() * (max - min + 1)) + min;
+
+         },
      
     });
 });
