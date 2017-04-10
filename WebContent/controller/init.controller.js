@@ -16,20 +16,10 @@ sap.ui.define([
 
         },
 
-        // когда возвращаемся на первую страницу
         onRouter: function()
         {
         	var that = this;
-        	/*
-        	$.ajaxSetup({
-        	    scriptCharset: "utf-8",
-        	    contentType: "application/json; charset=utf-8"
-        	});
-        	
-        	$.getJSON("model/inds.json", function( data ) {
-            	that.getView().setModel(new JSONModel(data), "gInds");
-        	});
-        	*/
+
 
             this.getView().setModel(new JSONModel("model/inds.json"), "gInds");
             this.getView().setModel(new JSONModel("model/groups.json"), "group");
@@ -52,16 +42,6 @@ sap.ui.define([
 			}
 		},
         
-        /**
-         * Обработка добавления показателя в выбранные
-         *
-         * @param {sap.ui.base.Event} oEvent
-         * @param {sap.ui.base.EventProvider} oEvent.getSource
-         * @param {object} oEvent.getParameters
-         * @param {sap.m.ListItemBase} oEvent.getParameters.listItem The list item which fired the select.
-         *
-         * @memberOf tepaup.modules.main.controller.MainPage#
-         */
         handleIndSelection: function (oEvent) {
 
           var oGSelectedIndsModel = this.getView().getModel('gSelectedInds');
@@ -100,18 +80,7 @@ sap.ui.define([
             });
           },
 
-        /**
-         * Удаление выбранного показателя из списка
-         *
-         * @param {sap.ui.base.Event} oEvent
-         * @param {sap.ui.base.EventProvider} oEvent.getSource
-         * @param {object} oEvent.getParameters
-         * @param {sap.m.ListItemBase} oEvent.getParameters.listItem The list item which fired the select.
-         *
-         * @fires module:top~resetIndcdFilterControlReset
-         *
-         * @memberOf tepaup.modules.main.controller.MainPage#
-         */
+
         handleRemoveSelected: function (oEvent) {
           var oGSelectedIndsModel = this.getView().getModel('gSelectedInds');
           var oGFilterModel = this.getView().getModel('gFilter');
@@ -127,27 +96,12 @@ sap.ui.define([
           this.configMode = false;
           this.getOwnerComponent().selectedConfig = undefined;
 
-          // @todo нужно ли делать это действие? (раньше его тут не было)
-          // oGFilterModel.oData.main.INDCD = oGSelectedIndsModel.oData.map(function(element){
-          //   return element.INDCD;
-          // });
-
-          //очистка выбора левого списка (для возможности повторного выбора)
           var list = this.byId('allIndsList');
           list.removeSelections();
 
-          this.getEventBus().publish('top', 'resetIndcdFilterControlReset', {});
         },
 
-        /**
-         * Clear selected inds list
-         *
-         * @param {sap.ui.base.Event} oEvent
-         *
-         * @fires module:top~resetIndcdFilterControlReset
-         *
-         * @memberOf tepaup.modules.main.controller.MainPage#
-         */
+
         handleClearAllSelected: function (oEvent) {
           var oGSelectedIndsModel = this.getView().getModel('gSelectedInds');
           var oGFilterModel = this.getView().getModel('gFilter');
@@ -156,24 +110,13 @@ sap.ui.define([
           this.getOwnerComponent().selectedConfig = undefined;
 
           oGSelectedIndsModel.setData([]);
-          // @todo нужно ли делать это действие? (раньше его тут не было)
-          //oGFilterModel.oData.main.INDCD = [];
 
-          //очистка выбора левого списка (для возможности повторного выбора)
+
           var list = this.byId('allIndsList');
           list.removeSelections();
 
-          this.getEventBus().publish('top', 'resetIndcdFilterControlReset', {});
         },
-        /**
-         * live search on inds in left list
-        *
-        * @param {sap.ui.base.Event} oEvent
-        * @param {sap.m.SearchField} oEvent.getSource
-        * @param {string} oEvent.getParameters.newValue Current search string
-        *
-        * @memberOf tepaup.modules.main.controller.MainPage#
-        */
+
        onLiveSearch: function (oEvent) {
          var sQuery = oEvent.getSource().getValue();
          var aFilters = [];
@@ -197,7 +140,6 @@ sap.ui.define([
            aFilters.push(oOrFilter);
          }
 
-         // update list binding
          var oList = this.byId('allIndsList');
          var oBinding = oList.getBinding('items');
          oBinding.filter(aFilters, 'Control');

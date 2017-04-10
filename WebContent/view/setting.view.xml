@@ -10,10 +10,10 @@ controllerName="controller.setting" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns
 		    <f:SimpleForm columnsL="2" columnsM="2" emptySpanL="0" emptySpanM="0" labelSpanL="1" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2">
                 <f:content>
                     <Label required="true" text="Горизонт прогнозирования, лет" textAlign="End"/>
-                    <Select>
-                        <core:Item key="0" text="1"/>
-                        <core:Item key="1" text="2"/>
-                        <core:Item key="2" text="3"/>
+                    <Select selectedKey="{settings>/forecastRange}"     id="idSelectForecastRange">
+                        <core:Item key="1" text="1"/>
+                        <core:Item key="2" text="2"/>
+                        <core:Item key="3" text="3"/>
                     </Select>
                     <Label required="true" text="Режим прогнозирования" textAlign="End"/>
                     <Select>

@@ -64,6 +64,13 @@ sap.ui.define([
         oVizFrame : null,
  
         onInit : function (evt) {
+        	
+        	
+        	// загрузка данных показателей
+            this.getView().setModel(new JSONModel("model/dataChart.json"), "data");
+
+        	
+        	
             this.initCustomFormat();
             // set explored app's demo model on this sample
             var oModel = new JSONModel(this.settingsModel);
@@ -97,7 +104,7 @@ sap.ui.define([
                 }
             });
             
-            var data =  {
+          /*  var data =  {
             		milk: [{
             			year: "2001",
             			
@@ -153,7 +160,7 @@ sap.ui.define([
             			}
             var dataModel = new JSONModel(data);
             oVizFrame.setModel(dataModel);
-            
+            */
          
             var oPopOver = this.getView().byId("idPopOver");
             oPopOver.connect(oVizFrame.getVizUid());
@@ -232,7 +239,123 @@ sap.ui.define([
         },
         initCustomFormat : function(){
             CustomerFormat.registerCustomFormat();
-        }
+        },
+        
+        // выбор показателей в мастере
+        onSelectInd: function(oEvent){
+        	var oSelectedItem = oEvent.getParameter("listItem");
+           var oContext = oSelectedItem.getBindingContext("gSelectedInds");
+            var model = this.getView().getModel("gSelectedInds").getProperty(oContext.getPath());
+            this.setIndData(model.INDCD);
+            
+/*
+            sap.ui.core.UIComponent.getRouterFor(this).navTo("card", {
+                "id": model.id,
+                "version": model.version
+            });*/
+        },
+        
+        setIndData: function(code){
+        	
+        	
+        	// отчетные данные
+        	
+        	var data = this.getView().getModel("data").getData();
+        	var ind;
+        	
+        	for (var i = 0; i < data.length; i++) {
+				if (data[i].ind === code) {
+					ind = data[i];
+					break;
+				}
+			}
+        	
+        	// расчетные данные
+        	
+        	
+        	for (var i = 0; i < ind.data.length; i++) {
+				if (ind.data[i].report) {
+					
+					let min = ind.data[i].report-ind.data[i].report*0.1;
+					let max = ind.data[i].report+ind.data[i].report*0.1
+				
+					ind.data[i].calc = this.getRandomInt(min,max)
+				}
+					
+        	} 
+        	
+        	
+        	var aa = this.getView().byId("idSelectForecastRange");
+        	/*
+        	
+        	
+        	
+        	// характеристика качества модели
+        	var quality = {
+        		Fstat : 'Значимо',
+        		DW : getRandomArbitary(1,4),
+        		R2 : getRandomArbitary(50,100)/100,
+        		SE : getRandomArbitary(10,100),
+        		AIC: getRandomArbitary(10,100)*-1,
+        		BIC: getRandomArbitary(10,100)*-1,
+        		
+        		
+        	}
+        	
+        	
+        	quality.R2A = quality.R2 - getRandomArbitary(2,10)/100
+        	// характеристика точности модели
+        	
+        	var errors = {
+        		econ: getRandomInt(1,17),
+        		ann: getRandomInt(1,20),
+        		rf: getRandomInt(1,20),
+        		ar: getRandomInt(1,20)      		
+        	}
+        	errors.combined =  Math.floor((errors.ann + errors.rf + errors.ar)/3)
+        	
+        	// результаты моделирования
+        	var result = {}, 
+        	varType = [' Построена модель с помощью эконометрического метода.', 'Построена модель с интеллектуального метода.'],
+        	varVerif = [' Модель прошла проверку ретроверификации', 'Модель не прошла проверку ретроверификации'];
+        	
+        	//как построена модель
+        	if  (errors.econ <= errors.combined) {
+        		result.type =  varType[0];
+        	} else { result.type =  varType[1] };
+        	
+        	// прошла ли проверка верефикацию
+        		if  (errors.econ < 15 || errors.combined  < 15 ) {
+            		result.verif =  varVerif[0];
+            	} else { result.verif =  varVerif[1] };
+        	
+            // итоговый текст	
+            result.text = 	 result.type +  result.verif;
+            	*/
+        	
+            var oVizFrame = this.oVizFrame = this.getView().byId("idVizFrame");
+
+        	 var dataModel = new JSONModel(ind);
+             oVizFrame.setModel(dataModel);
+            	
+            	
+         },
+         getRandomInt: function(min, max){ 
+
+           return Math.floor(Math.random() * (max - min + 1)) + min;
+
+         },
+         getRandomArbitary: function(min, max){
+
+         
+        	let random  = Math.random() * (max - min) + min;
+           return random.toFixed(3);
+
+         }
+
+
+         
+        
     }); 
  
     return Controller;

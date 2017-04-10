@@ -1,73 +1,131 @@
-<mvc:View controllerName="controller.chart" xmlns="sap.m"
-    xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout"
-    xmlns:mvc="sap.ui.core.mvc" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
-    xmlns:viz.data="sap.viz.ui5.data" height="100%">
-    <layout:FixFlex id='chartFixFlex' minFlexSize="250">
-        <!--Below is the setting panel -->
-        <layout:fixContent>
-            <Panel id='settingsPanel' class="panelStyle sapUiResponsiveMargin sapUiMediumMarginBeginEnd" expandable="true" 
-            expanded="true" headerText="Настройка графиков" width="auto">
+<mvc:View controllerName="controller.chart" height="100%" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+  <SplitContainer>
+    <masterPages>
+      <Page class="sapUiStdPage" icon="sap-icon://action" title="Показатели для анализа">
+        <content>
+          <List items="{gSelectedInds&gt;/}" mode="SingleSelectMaster" itemPress="onSelectInd" >
+            <items>
+              <ObjectListItem title="{gSelectedInds&gt;FNAME}" text="{gSelectedInds&gt;INDCD}" type="Active"/>
+              
+            </items>
+          </List>
+        </content>
+      </Page>
+    </masterPages>
+    <detailPages>
+      <Page class="sapUiStdPage sapUiMediumMarginBeginEnd" icon="sap-icon://action" title="Результаты моделирования">
+        <content>
+        <Panel width="auto">
+		<content>
+			<Text text="Построена модель с помощью регресионного уравнения. Показатель прошел проверку ретроверификации. Рекомендуется ее использовать для дальнейшего анализа. 
+			Отклонения от планового значения составляют" />
+		</content>
+	</Panel>
+          <Panel   expandable="true" expanded="true"
+               id="criteria" width="auto">
+            <content>
+              <f:SimpleForm 
+              columnsL="2" columnsM="2" emptySpanL="0" 
+              emptySpanM="0" labelSpanL="4" 
+              editable="false"
+              labelSpanM="4" layout="ResponsiveGridLayout" maxContainerCols="2">
+                <f:content>
+                  <core:Title text="Критерии качества регресионного уравнения"/>
+                  <Label text="Коеффициенты" textAlign="End"/>
+                  <Text text="0.6"/>
+                  <Label text="F-stat" textAlign="End"/>
+                  <Text/>
+                  <Label text="DW" textAlign="End"/>
+                  <Text/>
+                  <Label text="R2" textAlign="End"/>
+                  <Text text="0.6"/>
+                  <Label text="R2A" textAlign="End"/>
+                  <Text text="0.6"/>
+                  <Label text="SE" textAlign="End"/>
+                  <Text value="0.6"/>
+                  <Label text="AIC" textAlign="End"/>
+                  <Text text="0.6"/>
+                  <core:Title text="Критерий точности, %"/>
+                  <Label text="Эконометрика" textAlign="End"/>
+                  <Text/>
+                  <Label text="Комбинированная модель" textAlign="End"/>
+                  <Text/>
+                  <Label text="Нейронная сеть" textAlign="End"/>
+                  <Text/>
+                  <Label text="Случайный лес" textAlign="End"/>
+                  <Text/>
+                  <Label text="Авторегрессия" textAlign="End"/>
+                  <Text/>
+                  
+                  <core:Title text="Отклонения от плана, %"/>
+                  <Label text="Отчетные данные" textAlign="End"/>
+                  <Text/>
+                  <Label text="Прогнозные данные" textAlign="End"/>
+                  <Text/>
+                 
+                  <Text/>
+                </f:content>
+              </f:SimpleForm>
+            </content>
+          </Panel>
+          <layout:FixFlex id="chartFixFlex" minFlexSize="250">
+            <!--Below is the setting panel -->
+            <layout:fixContent>
+              <Panel  expandable="true" expanded="true" headerText="Настройка графиков" id="settingsPanel" width="auto">
                 <content>
-                    <HBox class='sapUiTinyMarginBeginEnd'>
-                   
-                    <VBox class='sapUiSmallMarginBeginEnd'>
-                        <Label text='{/series/name}' design="Bold" class='settingsLabel'></Label>
-                        <RadioButtonGroup id='seriesRadioGroup'
-                            buttons="{path: '/series/values'}" >
-                            <buttons>
-                                <RadioButton class='settingsRadio' text="{name}" select='onSeriesSelected'/>
-                            </buttons>
-                        </RadioButtonGroup>
+                  <HBox class="sapUiTinyMarginBeginEnd">
+                    <VBox class="sapUiSmallMarginBeginEnd">
+                      <Label class="settingsLabel" design="Bold" text="{/series/name}"/>
+                      <RadioButtonGroup buttons="{path: '/series/values'}" id="seriesRadioGroup">
+                        <buttons>
+                          <RadioButton class="settingsRadio" select="onSeriesSelected" text="{name}"/>
+                        </buttons>
+                      </RadioButtonGroup>
                     </VBox>
-                    <VBox class='sapUiSmallMarginBeginEnd'>
-                        <Label text = '{/dataLabel/name}' design="Bold" class='settingsLabel'></Label>
-                        <Switch class='settingsSwitch' state="{/dataLabel/defaultState}" change='onDataLabelChanged'>
-                            <layoutData>
-                                <FlexItemData growFactor="1" />
-                            </layoutData>
-                        </Switch>
+                    <VBox class="sapUiSmallMarginBeginEnd">
+                      <Label class="settingsLabel" design="Bold" text="{/dataLabel/name}"/>
+                      <Switch change="onDataLabelChanged" class="settingsSwitch" state="{/dataLabel/defaultState}">
+                        <layoutData>
+                          <FlexItemData growFactor="1"/>
+                        </layoutData>
+                      </Switch>
                     </VBox>
-                    <VBox class='sapUiSmallMarginBeginEnd'>
-                        <Label text = '{/axisTitle/name}' design="Bold" class='settingsLabel'></Label>
-                        <Switch class='settingsSwitch' state="{/axisTitle/defaultState}" change='onAxisTitleChanged'>
-                            <layoutData>
-                                <FlexItemData growFactor="1" />
-                            </layoutData>
-                        </Switch>
+                    <VBox class="sapUiSmallMarginBeginEnd">
+                      <Label class="settingsLabel" design="Bold" text="{/axisTitle/name}"/>
+                      <Switch change="onAxisTitleChanged" class="settingsSwitch" state="{/axisTitle/defaultState}">
+                        <layoutData>
+                          <FlexItemData growFactor="1"/>
+                        </layoutData>
+                      </Switch>
                     </VBox>
-                    </HBox>
+                  </HBox>
                 </content>
-            </Panel>
-        </layout:fixContent>
-        <layout:flexContent>
-            <viz:Popover id="idPopOver"></viz:Popover>
-            <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
-                height='100%' width="100%" vizType='line'>
+              </Panel>
+            </layout:fixContent>
+            <layout:flexContent>
+              <viz:Popover id="idPopOver"/>
+              <viz:VizFrame height="100%" id="idVizFrame" uiConfig="{applicationSet:'fiori'}" vizType="line" width="100%">
                 <viz:dataset>
-                    <viz.data:FlattenedDataset data="{/milk}">
-                        <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="Год"
-                                value="{year}" />
-                        </viz.data:dimensions>
-                        <viz.data:measures>
-                            <viz.data:MeasureDefinition name="План"
-                                value="{target}" />
-                            <viz.data:MeasureDefinition name="Факт"
-                                value="{report}" />
-                            <viz.data:MeasureDefinition name="Расчет"
-                                value="{calc}" />    
-                        </viz.data:measures>
-                    </viz.data:FlattenedDataset>
+                  <viz.data:FlattenedDataset data="{/data}">
+                    <viz.data:dimensions>
+                      <viz.data:DimensionDefinition name="Год" value="{year}"/>
+                    </viz.data:dimensions>
+                    <viz.data:measures>
+                      <viz.data:MeasureDefinition name="План" value="{target}"/>
+                      <viz.data:MeasureDefinition name="Факт" value="{report}"/>
+                      <viz.data:MeasureDefinition name="Расчет" value="{calc}"/>
+                    </viz.data:measures>
+                  </viz.data:FlattenedDataset>
                 </viz:dataset>
-
                 <viz:feeds>
-                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
-                        values="Факт" />
-                        
-                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
-                        values="Год" />
+                  <viz.feeds:FeedItem id="valueAxisFeed" type="Measure" uid="valueAxis" values="Факт"/>
+                  <viz.feeds:FeedItem id="categoryAxisFeed" type="Dimension" uid="categoryAxis" values="Год"/>
                 </viz:feeds>
-            </viz:VizFrame>
-        </layout:flexContent>
-    </layout:FixFlex>
+              </viz:VizFrame>
+            </layout:flexContent>
+          </layout:FixFlex>
+        </content>
+      </Page>
+    </detailPages>
+  </SplitContainer>
 </mvc:View>
