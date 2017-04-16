@@ -11,15 +11,14 @@ sap.ui.define([
     "sap/m/MessageBox",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator"
-    
-], function(Controller, JSONModel, MessageToast,MessageBox, Filter, FilterOperator) {
+
+], function(Controller, JSONModel, MessageToast, MessageBox, Filter, FilterOperator) {
     "use strict";
 
 
     return Controller.extend("controller.Base", {
 
-        getSession: function()
-        {
+        getSession: function() {
             let that = this;
             if (!this.getView().getModel("session")) {
 
@@ -33,8 +32,7 @@ sap.ui.define([
         /**
          * share/selectDialog: поиск в списке
          */
-        _dialogSelectSearch: function(oEvent)
-        {
+        _dialogSelectSearch: function(oEvent) {
             let sQuery = oEvent.getParameter("value").trim();
             let oFilters;
 
@@ -57,8 +55,7 @@ sap.ui.define([
         /*
          * проверка введенного текста
          * */
-        checkValueRange: function(oControl, iMin, iMax)
-        {
+        checkValueRange: function(oControl, iMin, iMax) {
             var bResult = true;
             // если oControl - InputBase
             if (oControl instanceof sap.m.InputBase) {
@@ -89,11 +86,10 @@ sap.ui.define([
         /*
          * возврат на главную страницу 
          * */
-        onReturnStartPage: function(evt)
-        {
+        onReturnStartPage: function(evt) {
             sap.ui.core.UIComponent.getRouterFor(this).navTo("init");
         },
-        
+
         /*
          * удаление дубликатов из массива 
          * 
@@ -102,24 +98,24 @@ sap.ui.define([
          * 
          * 
          * */
-         removeDuplicates: function(originalArray, objKey) {
+        removeDuplicates: function(originalArray, objKey) {
             var trimmedArray = [];
             var values = [];
             var value;
 
-            for(var i = 0; i < originalArray.length; i++) {
-              value = originalArray[i][objKey];
+            for (var i = 0; i < originalArray.length; i++) {
+                value = originalArray[i][objKey];
 
-              if(values.indexOf(value) === -1) {
-                trimmedArray.push(originalArray[i]);
-                values.push(value);
-              }
+                if (values.indexOf(value) === -1) {
+                    trimmedArray.push(originalArray[i]);
+                    values.push(value);
+                }
             }
 
             return trimmedArray;
 
-          }
-        
-       
+        }
+
+
     });
 });

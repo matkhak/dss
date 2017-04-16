@@ -112,17 +112,15 @@
                         </fb:FilterItem>
                       </fb:filterItems>
                     </fb:FilterBar>
-                    <l:BlockLayout>
-                      <l:BlockLayoutRow>
-                        <l:BlockLayoutCell width="25">
+                     <l:Grid class="sapUiSmallMarginTop" defaultSpan="L6 M6 S6" hSpacing="2">
+         				<l:content>
                           <core:Fragment fragmentName="view.LeftTable" type="XML"/>
-                        </l:BlockLayoutCell>
-                        <l:BlockLayoutCell width="75">
+                    
                           <core:Fragment fragmentName="view.RightTable" type="XML"/>
-                        </l:BlockLayoutCell>
-                      </l:BlockLayoutRow>
-                    </l:BlockLayout>
-                  </Page>
+                    </l:content>
+                    </l:Grid>
+                    
+                     </Page>
                   <Page  id="idPageSetting" height="100%" showFooter="false" showHeader="false">
                     <mvc:XMLView
                       viewName="view.setting"
